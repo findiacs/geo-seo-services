@@ -256,6 +256,41 @@ main() {
         echo "  Install later: $PYTHON_CMD -m playwright install chromium"
     fi
 
+
+    # ---- Sync to other Agent CLIs/IDEs ----
+    print_info "Syncing skills and agents to other supported IDEs/CLIs..."
+
+    # Array of target base directories
+    TARGET_DIRS=("$GEMINI_DIR" "$CODEX_DIR" "$OPENCODE_DIR" "$ANTIGRAVITY_DIR")
+
+    for dir in "${TARGET_DIRS[@]}"; do
+        mkdir -p "$dir/skills" "$dir/agents"
+
+        # We copy on Windows (symlinks can be problematic without admin rights)
+        # Main skill
+        rm -rf "$dir/skills/geo"
+        cp -r "$INSTALL_DIR" "$dir/skills/geo"
+
+        # Sub-skills
+        for skill_dir in "$SKILLS_DIR"/geo-*/; do
+            if [ -d "$skill_dir" ]; then
+                skill_name=$(basename "$skill_dir")
+                rm -rf "$dir/skills/$skill_name"
+                cp -r "$skill_dir" "$dir/skills/$skill_name"
+            fi
+        done
+
+        # Agents
+        for agent_file in "$AGENTS_DIR"/geo-*.md; do
+            if [ -f "$agent_file" ]; then
+                agent_name=$(basename "$agent_file")
+                cp "$agent_file" "$dir/agents/$agent_name"
+            fi
+        done
+    done
+
+    print_success "Synced seamlessly to Gemini, Codex, OpenCode, and Antigravity"
+
     # ---- Verify Installation ----
     echo ""
     print_info "Verifying installation..."
@@ -285,7 +320,7 @@ main() {
     echo "  Agents:       ${AGENT_COUNT} subagents"
     echo ""
     echo -e "${BLUE}Quick Start:${NC}"
-    echo "  Open Claude Code and try:"
+    echo "  Open your supported AI Agent CLI (e.g. Claude Code) and try:"
     echo ""
     echo "    /geo audit https://example.com"
     echo "    /geo quick https://example.com"

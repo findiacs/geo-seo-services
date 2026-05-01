@@ -77,6 +77,9 @@
     .file-link { font-size: .82rem; font-family: monospace; color: #58a6ff; }
     .badge { font-size: .75rem; }
     a { text-decoration: none; }
+
+    /* Accessibility */
+    :focus-visible { outline: 2px solid var(--geo-accent); outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -90,9 +93,9 @@
   </div>
 </nav>
 
-<div class="container-fluid px-4">
+<main class="container-fluid px-4" role="main">
   {% block content %}{% endblock %}
-</div>
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -114,7 +114,8 @@
         <td class="text-center" onclick="event.stopPropagation()">
           <a href="/prospect/{{ p.id }}/pdf"
              class="btn btn-sm btn-outline-danger {% if not p.proposal_file %}disabled{% endif %}"
-             title="Scarica PDF">
+             title="Scarica PDF"
+             aria-label="Scarica PDF di {{ p.company }}">
             <i class="bi bi-file-earmark-pdf"></i>
           </a>
         </td>

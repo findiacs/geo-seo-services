@@ -1,0 +1,4 @@
+## 2025-02-23 - Accessibility improvements for GEO-SEO CRM
+
+**Learning:** When using Bootstrap 5 dark mode without explicit form labels, inputs and selects need `aria-label`s to be announced correctly. Icon-only buttons mapping to specific table rows (like "Download PDF") need dynamic `aria-label`s (e.g. `aria-label="Scarica PDF di {{ p.company }}"`) to provide context to screen readers instead of a generic "Download PDF" read out multiple times. Also, base layouts often miss semantic `<main>` landmarks and distinct keyboard focus indicators if relying purely on defaults.
+**Action:** Always check form controls inside HTMX partials/forms for labels, ensure icon buttons in loops have dynamic contextual screen reader text, verify `<main>` presence, and add `:focus-visible` where custom themes override defaults.

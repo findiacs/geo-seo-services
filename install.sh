@@ -8,7 +8,15 @@ set -euo pipefail
 # ============================================================
 
 REPO_URL="https://github.com/zubair-trabzada/geo-seo-claude.git"
+# Base directories for all supported agents
 CLAUDE_DIR="${HOME}/.claude"
+GEMINI_DIR="${HOME}/.gemini"
+CODEX_DIR="${HOME}/.codex"
+OPENCODE_DIR="${HOME}/.opencode"
+ANTIGRAVITY_DIR="${HOME}/.antigravity"
+
+# Main installation directory remains inside Claude for now, but we will symlink or copy to others.
+MAIN_DIR="${HOME}/.claude"
 SKILLS_DIR="${CLAUDE_DIR}/skills"
 AGENTS_DIR="${CLAUDE_DIR}/agents"
 INSTALL_DIR="${SKILLS_DIR}/geo"
@@ -302,6 +310,42 @@ main() {
         echo "    ${VENV_PY} -m playwright install chromium"
     fi
 
+
+    # ---- Sync to other Agent CLIs/IDEs ----
+    print_info "Syncing skills and agents to other supported IDEs/CLIs..."
+
+    # Array of target base directories
+    TARGET_DIRS=("$GEMINI_DIR" "$CODEX_DIR" "$OPENCODE_DIR" "$ANTIGRAVITY_DIR")
+
+    for dir in "${TARGET_DIRS[@]}"; do
+        mkdir -p "$dir/skills" "$dir/agents"
+
+        # We use a symlink so that python script paths remain valid and point to the single .venv
+        # Main skill
+        rm -rf "$dir/skills/geo"
+        ln -sf "$INSTALL_DIR" "$dir/skills/geo"
+
+        # Sub-skills
+        for skill_dir in "$SKILLS_DIR"/geo-*/; do
+            if [ -d "$skill_dir" ]; then
+                skill_name=$(basename "$skill_dir")
+                rm -rf "$dir/skills/$skill_name"
+                ln -sf "$skill_dir" "$dir/skills/$skill_name"
+            fi
+        done
+
+        # Agents
+        for agent_file in "$AGENTS_DIR"/geo-*.md; do
+            if [ -f "$agent_file" ]; then
+                agent_name=$(basename "$agent_file")
+                rm -f "$dir/agents/$agent_name"
+                ln -sf "$agent_file" "$dir/agents/$agent_name"
+            fi
+        done
+    done
+
+    print_success "Synced seamlessly to Gemini, Codex, OpenCode, and Antigravity"
+
     # ---- Verify Installation ----
     echo ""
     print_info "Verifying installation..."
@@ -348,7 +392,7 @@ main() {
     echo "  Agents:       ${AGENT_COUNT} subagents"
     echo ""
     echo -e "${BLUE}Quick Start:${NC}"
-    echo "  Open Claude Code and try:"
+    echo "  Open your supported AI Agent CLI (e.g. Claude Code) and try:"
     echo ""
     echo "    /geo audit https://example.com"
     echo "    /geo quick https://example.com"

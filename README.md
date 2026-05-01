@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="GEO-SEO Claude Code Skill" width="900"/>
+  <img src="assets/banner.svg" alt="GEO-SEO Universal Agent Skill" width="900"/>
 </p>
 
 <p align="center">
@@ -9,6 +9,15 @@
 
 <p align="center">
   AI search is eating traditional search. This tool optimizes for where traffic is going, not where it was.
+</p>
+
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Claude_Code-Supported-blue?style=for-the-badge&logo=anthropic" alt="Claude Code Supported"/>
+  <img src="https://img.shields.io/badge/Gemini_CLI-Supported-blue?style=for-the-badge&logo=google" alt="Gemini CLI Supported"/>
+  <img src="https://img.shields.io/badge/Codex_CLI-Supported-blue?style=for-the-badge&logo=openai" alt="Codex CLI Supported"/>
+  <img src="https://img.shields.io/badge/OpenCode-Supported-blue?style=for-the-badge" alt="OpenCode Supported"/>
+  <img src="https://img.shields.io/badge/Antigravity_IDE-Supported-blue?style=for-the-badge" alt="Antigravity IDE Supported"/>
 </p>
 
 ---
@@ -29,6 +38,9 @@
 ## Quick Start
 
 ### One-Command Install (macOS/Linux)
+
+The installation script automatically detects and installs the skills and agents to all supported AI coding assistants on your system (Claude Code, Gemini CLI, Codex CLI, OpenCode, and Antigravity IDE).
+
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/geo-seo-claude/main/install.sh | bash

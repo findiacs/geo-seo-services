@@ -398,59 +398,52 @@ def extract_content_blocks(html: str) -> list:
 def crawl_sitemap(url: str, max_pages: int = 50, timeout: int = 15) -> list:
     """Crawl sitemap.xml to discover pages."""
     parsed = urlparse(url)
-    sitemap_urls = [
+    base_sitemap_urls = [
         f"{parsed.scheme}://{parsed.netloc}/sitemap.xml",
         f"{parsed.scheme}://{parsed.netloc}/sitemap_index.xml",
         f"{parsed.scheme}://{parsed.netloc}/sitemap/",
     ]
 
     discovered_pages = set()
+    visited_sitemaps = set()
+    sitemap_queue = list(base_sitemap_urls)
 
-    for sitemap_url in sitemap_urls:
-        try:
-            response = requests.get(
-                sitemap_url, headers=DEFAULT_HEADERS, timeout=timeout
-            )
-            if response.status_code == 200:
-                soup = BeautifulSoup(response.text, "lxml")
+    with requests.Session() as session:
+        session.headers.update(DEFAULT_HEADERS)
 
-                # Check for sitemap index
-                for sitemap in soup.find_all("sitemap"):
-                    loc = sitemap.find("loc")
-                    if loc:
-                        # Fetch child sitemap
-                        try:
-                            child_resp = requests.get(
-                                loc.text.strip(),
-                                headers=DEFAULT_HEADERS,
-                                timeout=timeout,
-                            )
-                            if child_resp.status_code == 200:
-                                child_soup = BeautifulSoup(child_resp.text, "lxml")
-                                for url_tag in child_soup.find_all("url"):
-                                    loc_tag = url_tag.find("loc")
-                                    if loc_tag:
-                                        discovered_pages.add(loc_tag.text.strip())
-                                    if len(discovered_pages) >= max_pages:
-                                        break
-                        except Exception:
-                            pass
-                    if len(discovered_pages) >= max_pages:
-                        break
+        while sitemap_queue and len(discovered_pages) < max_pages:
+            current_sitemap = sitemap_queue.pop(0)
+            if current_sitemap in visited_sitemaps:
+                continue
+
+            visited_sitemaps.add(current_sitemap)
+
+            try:
+                response = session.get(current_sitemap, timeout=timeout)
+                if response.status_code != 200:
+                    continue
+
+                # Use 'xml' parser for better performance and correctness with sitemaps
+                soup = BeautifulSoup(response.text, "xml")
+
+                # Check for sitemap index entries
+                for sitemap_tag in soup.find_all("sitemap"):
+                    loc_tag = sitemap_tag.find("loc")
+                    if loc_tag:
+                        child_url = loc_tag.text.strip()
+                        if child_url not in visited_sitemaps:
+                            sitemap_queue.append(child_url)
 
                 # Direct URL entries
                 for url_tag in soup.find_all("url"):
-                    loc = url_tag.find("loc")
-                    if loc:
-                        discovered_pages.add(loc.text.strip())
-                    if len(discovered_pages) >= max_pages:
-                        break
+                    loc_tag = url_tag.find("loc")
+                    if loc_tag:
+                        discovered_pages.add(loc_tag.text.strip())
+                        if len(discovered_pages) >= max_pages:
+                            break
 
-                if discovered_pages:
-                    break
-
-        except Exception:
-            continue
+            except Exception:
+                continue
 
     return list(discovered_pages)[:max_pages]
 

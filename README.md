@@ -3,12 +3,12 @@
 </p>
 
 <p align="center">
-  <strong>GEO-first, SEO-supported.</strong> Optimize websites for AI-powered search engines<br/>
-  (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews) while maintaining traditional SEO foundations.
+  <strong>AI Discoverability Infrastructure.</strong> Proprietary AI visibility intelligence assessment system<br/>
+  (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews) while maintaining foundational discovery accessibility.
 </p>
 
 <p align="center">
-  AI search is eating traditional search. This tool optimizes for where traffic is going, not where it was.
+  Executive-grade platform operated by Abderraouf-yt, AI Visibility Engineer. Assesses and remediates recommendation readiness and cross-platform discovery presence.
 </p>
 
 
@@ -22,16 +22,16 @@
 
 ---
 
-## Why GEO Matters (2026)
+## Why AI Discoverability Matters (2026)
 
 | Metric | Value |
 |--------|-------|
-| GEO services market | $850M+ (projected $7.3B by 2031) |
+| AI Visibility services market | $850M+ (projected $7.3B by 2031) |
 | AI-referred traffic growth | +527% year-over-year |
 | AI traffic conversion rate vs organic | 4.4x higher |
 | Gartner: search traffic drop by 2028 | -50% |
 | Brand mentions vs backlinks for AI | 3x stronger correlation |
-| Marketers investing in GEO | Only 23% |
+| Marketers investing in AI Discoverability | Only 23% |
 
 ---
 
@@ -95,7 +95,7 @@ Open Claude Code and use these commands:
 
 | Command | What It Does |
 |---------|-------------|
-| `/geo audit <url>` | Full GEO + SEO audit with parallel subagents |
+| `/geo audit <url>` | Full AI visibility intelligence assessment with parallel subagents |
 | `/geo quick <url>` | 60-second GEO visibility snapshot |
 | `/geo citability <url>` | Score content for AI citation readiness |
 | `/geo crawlers <url>` | Check AI crawler access (robots.txt) |
@@ -103,7 +103,7 @@ Open Claude Code and use these commands:
 | `/geo brands <url>` | Scan brand mentions across AI-cited platforms |
 | `/geo platforms <url>` | Platform-specific optimization |
 | `/geo schema <url>` | Structured data analysis & generation |
-| `/geo technical <url>` | Technical SEO audit |
+| `/geo technical <url>` | Discovery Accessibility audit |
 | `/geo content <url>` | Content quality & E-E-A-T assessment |
 | `/geo report <url>` | Generate client-ready GEO report |
 | `/geo report-pdf` | Generate professional PDF report with charts & visualizations |
@@ -124,7 +124,7 @@ geo-seo-claude/
 │   ├── geo-brand-mentions/       # Brand presence on AI-cited platforms
 │   ├── geo-platform-optimizer/   # Platform-specific AI search optimization
 │   ├── geo-schema/               # Structured data for AI discoverability
-│   ├── geo-technical/            # Technical SEO foundations
+│   ├── geo-technical/            # Discovery Accessibility foundations
 │   ├── geo-content/              # Content quality & E-E-A-T
 │   ├── geo-report/               # Client-ready markdown report generation
 │   ├── geo-report-pdf/           # Professional PDF report with charts
@@ -134,7 +134,7 @@ geo-seo-claude/
 ├── agents/                       # 5 parallel subagents
 │   ├── geo-ai-visibility.md      # GEO audit, citability, crawlers, brands
 │   ├── geo-platform-analysis.md  # Platform-specific optimization
-│   ├── geo-technical.md          # Technical SEO analysis
+│   ├── geo-technical.md          # Discovery Accessibility analysis
 │   ├── geo-content.md            # Content & E-E-A-T analysis
 │   └── geo-schema.md             # Schema markup analysis
 ├── scripts/                      # Python utilities
@@ -185,19 +185,19 @@ When you run `/geo audit https://example.com`:
 2. **Parallel Analysis** — Launches 5 subagents simultaneously:
    - AI Visibility (citability, crawlers, llms.txt, brand mentions)
    - Platform Analysis (ChatGPT, Perplexity, Google AIO readiness)
-   - Technical SEO (Core Web Vitals, SSR, security, mobile)
+   - Discovery Accessibility (Core Web Vitals, SSR, security, mobile)
    - Content Quality (E-E-A-T, readability, freshness)
    - Schema Markup (detection, validation, generation)
-3. **Synthesis** — Aggregates scores, generates composite GEO Score (0-100)
+3. **Synthesis** — Aggregates scores, generates composite AI Discoverability Readiness (0-100)
 4. **Report** — Outputs prioritized action plan with quick wins
 
 ### Scoring Methodology
 
 | Category | Weight |
 |----------|--------|
-| AI Citability & Visibility | 25% |
+| AI Reference Eligibility & Visibility | 25% |
 | Brand Authority Signals | 20% |
-| Content Quality & E-E-A-T | 20% |
+| Knowledge Clarity | 20% |
 | Technical Foundations | 15% |
 | Structured Data | 10% |
 | Platform Optimization | 10% |

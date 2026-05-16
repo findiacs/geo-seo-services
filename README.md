@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="GEO-SEO Universal Agent Skill" width="900"/>
+  <img src="assets/banner.svg" alt="AI Visibility Intelligence Infrastructure" width="900"/>
 </p>
 
 <p align="center">
@@ -32,6 +32,15 @@
 | Gartner: search traffic drop by 2028 | -50% |
 | Brand mentions vs backlinks for AI | 3x stronger correlation |
 | Marketers investing in AI Discoverability | Only 23% |
+
+---
+
+
+## 1. Executive Introduction
+
+A proprietary AI Visibility Intelligence platform designed to assess how modern AI systems interpret, understand, trust, and recommend businesses across digital discovery surfaces.
+
+This executive-grade platform operates as a specialized intelligence infrastructure. It evaluates discoverability, recommendation readiness, AI perception gaps, and the underlying trust infrastructure necessary for entity inclusion in LLM-mediated discovery.
 
 ---
 
@@ -96,7 +105,7 @@ Open Claude Code and use these commands:
 | Command | What It Does |
 |---------|-------------|
 | `/geo audit <url>` | Full AI visibility intelligence assessment with parallel subagents |
-| `/geo quick <url>` | 60-second GEO visibility snapshot |
+| `/geo quick <url>` | 60-second discovery accessibility snapshot |
 | `/geo citability <url>` | Score content for AI citation readiness |
 | `/geo crawlers <url>` | Check AI crawler access (robots.txt) |
 | `/geo llmstxt <url>` | Analyze or generate llms.txt |
@@ -105,12 +114,12 @@ Open Claude Code and use these commands:
 | `/geo schema <url>` | Structured data analysis & generation |
 | `/geo technical <url>` | Discovery Accessibility audit |
 | `/geo content <url>` | Content quality & E-E-A-T assessment |
-| `/geo report <url>` | Generate client-ready GEO report |
+| `/geo report <url>` | Generate executive intelligence report |
 | `/geo report-pdf` | Generate professional PDF report with charts & visualizations |
 
 ---
 
-## Architecture
+## Component Architecture
 
 ```
 geo-seo-claude/
@@ -132,7 +141,7 @@ geo-seo-claude/
 │   ├── geo-proposal/             # Auto-generate client proposals
 │   └── geo-compare/              # Monthly delta tracking & progress reports
 ├── agents/                       # 5 parallel subagents
-│   ├── geo-ai-visibility.md      # GEO audit, citability, crawlers, brands
+│   ├── geo-ai-visibility.md      # Discovery intelligence audit, citability, crawlers, brands
 │   ├── geo-platform-analysis.md  # Platform-specific optimization
 │   ├── geo-technical.md          # Discovery Accessibility analysis
 │   ├── geo-content.md            # Content & E-E-A-T analysis
@@ -175,7 +184,7 @@ This directory is **not removed** by the uninstaller — delete it manually if y
 
 ---
 
-## How It Works
+## 3. Infrastructure Layer
 
 ### Full Audit Flow
 
@@ -204,7 +213,7 @@ When you run `/geo audit https://example.com`:
 
 ---
 
-## Key Features
+## 2. Core Capabilities
 
 ### Citability Scoring
 Analyzes content blocks for AI citation readiness. Optimal AI-cited passages are 134-167 words, self-contained, fact-rich, and directly answer questions.
@@ -221,14 +230,15 @@ Only 11% of domains are cited by both ChatGPT and Google AI Overviews for the sa
 ### llms.txt Generation
 Generates the emerging llms.txt standard file that helps AI crawlers understand your site structure.
 
-### Client-Ready Reports
-Generates professional GEO reports in markdown or PDF format. PDF reports include score gauges, bar charts, platform readiness visualizations, color-coded tables, and prioritized action plans — ready to deliver to clients.
+## 4. Report System
+Generates premium, institutional decision-oriented intelligence reports in markdown or PDF format. Reports include score gauges, platform readiness visualizations, and prioritized visibility diagnostics — ready for executive delivery.
+
 
 ---
 
-## Use Cases
+## Strategic Applications
 
-- **GEO Agencies** — Run client audits and generate deliverables
+- **Visibility Intelligence Operators** — Run intelligence assessments and generate deliverables
 - **Marketing Teams** — Monitor and improve AI search visibility
 - **Content Creators** — Optimize content for AI citations
 - **Local Businesses** — Get found by AI assistants
@@ -250,19 +260,19 @@ rm -rf ~/.claude/skills/geo ~/.claude/skills/geo-* ~/.claude/agents/geo-*.md
 
 ---
 
-## Want to Turn This Into a Business?
+## Commercial Deployment & Advisory Licensing
 
-The tool is free. Learning how to monetize it is where the community comes in.
+Access specialized operator playbooks, institutional pricing models, and strategic deployment documentation for the AI Visibility Intelligence platform.
 
 **[Join the AI Workshop Community →](https://skool.com/aiworkshop)**
 
 Inside you'll get:
 - **Video walkthroughs** — Step-by-step setup, running audits, reading results
-- **Client acquisition playbook** — How to find prospects, pitch GEO services, and close deals
+- **Client acquisition playbook** — How to find prospects, pitch AI Discoverability services, and close deals
 - **Live office hours** — Bring your audit results, get direct help
-- **GEO agency pricing & templates** — Proposal docs, cold outreach scripts, onboarding workflows
+- **Visibility operator pricing & templates** — Proposal docs, cold outreach scripts, onboarding workflows
 
-GEO agencies charge $2K–$12K/month. This tool does the audit. The community teaches you how to sell it.
+Intelligence operators utilize this infrastructure to deliver premium $2K–$12K/month visibility assessments and remediation programs.
 
 ---
 
@@ -278,4 +288,4 @@ Contributions welcome!
 
 ---
 
-Built for the AI search era.
+Engineered for AI-mediated discovery and recommendation readiness.

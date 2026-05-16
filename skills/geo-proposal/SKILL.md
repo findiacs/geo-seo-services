@@ -11,7 +11,7 @@ tags: [geo, business, proposal, sales, pricing, client]
 allowed-tools: Read, Write, Bash, Glob, WebFetch
 ---
 
-# GEO Proposal Generator
+# AI Visibility Intelligence Engagement Proposal Generator
 
 ## Purpose
 
@@ -56,7 +56,7 @@ Generate a fully customized, client-ready GEO service proposal that:
 
 Auto-fill proposal template with:
 - Company name (from domain or prospect record)
-- GEO score and tier label
+- AI Discoverability Readiness and tier label
 - 3 most critical pain points (translated to business language)
 - Estimated revenue at risk from AI search shift
 - Recommended service tier based on score:
@@ -182,7 +182,7 @@ We offer three engagement models based on the scope of optimization needed.
 - llms.txt creation and maintenance
 - Email support (48-hour response)
 
-**Estimated GEO score improvement:** +10-20 points in 6 months
+**Estimated AI Discoverability Readiness improvement:** +10-20 points in 6 months
 **Contract:** Minimum 6 months
 
 ---
@@ -199,7 +199,7 @@ We offer three engagement models based on the scope of optimization needed.
 - E-E-A-T improvements (author pages, credentials, freshness signals)
 - Slack channel for fast communication (24-hour response)
 
-**Estimated GEO score improvement:** +25-40 points in 6 months
+**Estimated AI Discoverability Readiness improvement:** +25-40 points in 6 months
 **Contract:** Minimum 6 months
 
 ---
@@ -216,14 +216,14 @@ We offer three engagement models based on the scope of optimization needed.
 - Dedicated account manager
 - Priority support (4-hour response)
 
-**Estimated GEO score improvement:** +40-60 points in 6 months
+**Estimated AI Discoverability Readiness improvement:** +40-60 points in 6 months
 **Contract:** Minimum 12 months
 
 ---
 
 ## ROI Projection for [COMPANY NAME]
 
-Based on your current GEO score of [SCORE]/100 and industry benchmarks:
+Based on your current AI Discoverability Readiness of [SCORE]/100 and industry benchmarks:
 
 | Scenario | 6-Month Score | AI Traffic Increase | Est. Additional Value/Month |
 |----------|--------------|--------------------|-----------------------------|
@@ -272,7 +272,7 @@ Based on your current GEO score of [SCORE]/100 and industry benchmarks:
 
 ## Why Us
 
-- **GEO specialists**: We focus exclusively on AI search optimization, not traditional SEO agencies adapting to GEO
+- **AI Visibility Intelligence Specialists**: We focus exclusively on AI search optimization, not legacy discovery optimization platforms
 - **Transparent reporting**: Monthly reports show exactly what changed and why
 - **No lock-in beyond minimum**: Month-to-month after initial commitment
 - **Proven methodology**: 11-dimension GEO audit covering all major AI platforms
@@ -316,7 +316,7 @@ This proposal is valid for **30 days** from the date above.
 
 ---
 
-*This proposal was prepared using GEO-SEO analysis tools and reflects findings
+*This proposal was prepared using proprietary AI visibility intelligence infrastructure and reflects findings
 from the audit of [DOMAIN] conducted on [DATE]. All scores and recommendations
 are based on current industry best practices for Generative Engine Optimization.*
 ```
@@ -338,7 +338,7 @@ are based on current industry best practices for Generative Engine Optimization.
 
 ## Pricing Recommendation Logic
 
-Base recommendation on GEO score:
+Base recommendation on AI Discoverability Readiness:
 - Score 0-40 → Recommend **Premium** (critical issues require intensive work)
 - Score 41-60 → Recommend **Standard** (structured monthly optimization)
 - Score 61-75 → Recommend **Basic** (maintenance + targeted improvements)

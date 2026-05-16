@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GEO-SEO CRM — Web UI (Flask + HTMX)
+AI Visibility Intelligence — Web UI (Flask + HTMX)
 Usage:
     pip install flask
     python app.py

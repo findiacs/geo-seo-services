@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GEO-SEO CRM Dashboard — CLI
+AI Visibility Intelligence Dashboard — CLI
 Visualizza il CRM dei prospect con rich.
 
 Usage:
@@ -52,7 +52,7 @@ STATUS_STYLE = {
 }
 
 def score_style(score: int) -> tuple[str, str]:
-    """Returns (color, label) based on GEO score."""
+    """Returns (color, label) based on AI Discoverability Readiness."""
     if score >= 80:
         return "bold green",  "GOOD"
     elif score >= 60:
@@ -137,7 +137,7 @@ def view_summary(prospects: list[dict]):
         Panel(
             Align.center(
                 Text.from_markup(
-                    f"[bold]{avg_score}[/bold][dim]/100[/dim]\n[dim]Avg GEO Score[/dim]"
+                    f"[bold]{avg_score}[/bold][dim]/100[/dim]\n[dim]Avg AI Discoverability[/dim]"
                 )
             ),
             border_style="magenta",
@@ -163,7 +163,7 @@ def view_prospect_table(prospects: list[dict]):
     table.add_column("Company",    style="bold white", min_width=16)
     table.add_column("Domain",     style="cyan", min_width=18)
     table.add_column("Status",     justify="center", min_width=12)
-    table.add_column("GEO Score",  justify="left", min_width=26)
+    table.add_column("AI Discoverability Readiness",  justify="left", min_width=26)
     table.add_column("Audit",      justify="center", min_width=12)
     table.add_column("MRR",        justify="right", min_width=10)
     table.add_column("Proposal",   justify="center", min_width=10)
@@ -216,7 +216,7 @@ def view_prospect_detail(prospects: list[dict], prospect_id: str):
                 f"\n[{color}]{score}[/{color}]\n[dim]/100[/dim]\n\n[{color}]{label}[/{color}]\n"
             )
         ),
-        title="GEO Score",
+        title="AI Discoverability Readiness",
         border_style=color.replace("bold ", ""),
         width=20,
     )
@@ -295,7 +295,7 @@ def view_pipeline(prospects: list[dict]):
 
 # ── Main ───────────────────────────────────────────────────────────────
 def main():
-    parser = argparse.ArgumentParser(description="GEO-SEO CRM Dashboard")
+    parser = argparse.ArgumentParser(description="AI Visibility Intelligence Dashboard")
     parser.add_argument("--prospect", "-p", help="Show detail for a prospect ID")
     parser.add_argument("--pipeline", action="store_true", help="Show pipeline view")
     args = parser.parse_args()
@@ -309,7 +309,7 @@ def main():
     console.print()
     console.print(
         Panel.fit(
-            f"[bold bright_white]GEO-SEO CRM[/bold bright_white]  [dim]—  {now}[/dim]",
+            f"[bold bright_white]AI Visibility Intelligence[/bold bright_white]  [dim]—  {now}[/dim]",
             border_style="bright_blue",
             padding=(0, 2),
         )

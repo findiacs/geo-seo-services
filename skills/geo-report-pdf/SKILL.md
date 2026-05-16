@@ -1,17 +1,17 @@
 ---
 name: geo-report-pdf
-description: Generate a professional PDF report from GEO audit data using ReportLab. Creates a polished, client-ready PDF with score gauges, bar charts, platform readiness visualizations, color-coded tables, and prioritized action plans.
+description: Generate a professional PDF report from AI visibility intelligence data using ReportLab. Creates a polished, client-ready PDF with score gauges, bar charts, platform readiness visualizations, color-coded tables, and prioritized action plans.
 version: 1.0.0
 author: geo-seo-claude
 tags: [geo, pdf, report, client-deliverable, professional]
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
 ---
 
-# GEO PDF Report Generator
+# AI Visibility Intelligence PDF Generator
 
 ## Purpose
 
-This skill generates a professional, visually polished PDF report from GEO audit data. The PDF includes score gauges, bar charts, platform readiness visualizations, color-coded tables, and a prioritized action plan — ready to deliver directly to clients.
+This skill generates a professional, visually polished PDF report from AI visibility intelligence data. The PDF includes score gauges, bar charts, platform readiness visualizations, color-coded tables, and a prioritized action plan — ready to deliver directly to clients.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ This skill generates a professional, visually polished PDF report from GEO audit
 
 ### Step 1: Collect Audit Data
 
-After running a full `/geo-audit`, collect all scores, findings, and recommendations into a JSON structure. The JSON data must follow this schema:
+After running a full `/geo-audit`, collect all scores, findings, and recommendations into a JSON structure. The JSON data must follow this explainability_infrastructure:
 
 ```json
 {
@@ -32,12 +32,12 @@ After running a full `/geo-audit`, collect all scores, findings, and recommendat
     "date": "2026-02-18",
     "geo_score": 65,
     "scores": {
-        "ai_citability": 62,
+        "ai_reference_eligibility": 62,
         "brand_authority": 78,
-        "content_eeat": 74,
-        "technical": 72,
-        "schema": 45,
-        "platform_optimization": 59
+        "knowledge_clarity": 74,
+        "discovery_accessibility": 72,
+        "explainability_infrastructure": 45,
+        "cross_platform_discovery": 59
     },
     "platforms": {
         "Google AI Overviews": 68,
@@ -93,7 +93,7 @@ python3 ~/.claude/skills/geo/scripts/generate_pdf_report.py /tmp/geo-audit-data.
 ```
 
 The script will produce a professional PDF report with:
-- **Cover Page** — Brand name, URL, date, overall GEO score with visual gauge
+- **Cover Page** — Brand name, URL, date, overall AI Discoverability Readiness with visual gauge
 - **Executive Summary** — Key findings and top recommendations
 - **Score Breakdown** — Table and bar chart of all 6 scoring categories
 - **AI Platform Readiness** — Visual horizontal bar chart per platform with scores
@@ -118,15 +118,15 @@ When the user runs this skill, follow this exact sequence:
 2. **If no audit data exists** — Tell the user to run `/geo-audit <url>` first, then come back for the PDF.
 
 3. **If audit data exists** — Parse the markdown report to extract:
-   - Overall GEO score
-   - Category scores (citability, brand authority, content/E-E-A-T, technical, schema, platform)
+   - Overall AI Discoverability Readiness
+   - Category scores (citability, brand authority, content/E-E-A-T, discovery_accessibility, explainability_infrastructure, platform)
    - Platform readiness scores (Google AIO, ChatGPT, Perplexity, Gemini, Bing Copilot)
    - AI crawler access status
    - Key findings with severity levels
    - Quick wins, medium-term, and strategic action items
    - Executive summary
 
-4. **Build the JSON** — Structure all data into the JSON schema shown above.
+4. **Build the JSON** — Structure all data into the JSON explainability_infrastructure shown above.
 
 5. **Write JSON to temp file** — Save to `/tmp/geo-audit-data.json`
 

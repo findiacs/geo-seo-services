@@ -234,7 +234,7 @@ Templates must:
 - Include `@context: "https://schema.org"`.
 - Use placeholder values clearly marked as `[REPLACE: description of what goes here]`.
 - Include all required properties for rich result eligibility.
-- Include all recommended properties for GEO optimization.
+- Include all recommended properties for AI Visibility Optimization.
 - Be syntactically valid JSON that can be pasted directly into HTML inside a `<script type="application/ld+json">` tag.
 
 ### Step 8: Score Schema Completeness

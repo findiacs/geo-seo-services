@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-GEO-SEO PDF Report Generator
-Generates professional, client-ready PDF reports from GEO audit data.
+AI Visibility Intelligence PDF Generator
+Generates professional, client-ready PDF reports from AI visibility assessment data.
 
 Usage:
     python generate_pdf_report.py <json_data_file> [output_file.pdf]
@@ -78,6 +78,33 @@ def get_score_color(score):
     else:
         return DANGER
 
+
+
+def get_ai_understanding_narrative(score):
+    if score >= 80:
+        return (
+            "Current discovery accessibility and explainability infrastructure support high-confidence interpretation. "
+            "AI systems successfully parse the organizational identity, map its operational domain, and correctly "
+            "associate the entity with relevant industry vectors. Authority signals exhibit sufficient density to "
+            "trigger reliable inclusion across recommendation surfaces and category queries. Ongoing maintenance should "
+            "focus strictly on preserving entity differentiation and trust-signal consistency."
+        )
+    elif score >= 60:
+        return (
+            "The entity maintains base operational visibility, allowing AI models to confirm its existence and "
+            "primary domain. However, interpretation confidence degrades rapidly when evaluating positioning clarity, "
+            "authority differentiation, and recommendation trust. Structural explainability gaps restrict the system's "
+            "ability to cite the entity with certainty against category peers, resulting in inconsistent "
+            "cross-platform discovery."
+        )
+    else:
+        return (
+            "AI interpretation systems currently exhibit critical confidence failures regarding entity relevance and "
+            "market positioning. Severe deficits in foundational discovery accessibility and absent explainability "
+            "infrastructure actively impede the synthesis of organizational knowledge. Without immediate remediation "
+            "of these foundational trust signals, the entity remains functionally excluded from AI-mediated "
+            "recommendation sequences."
+        )
 
 def get_score_label(score):
     """Return label based on score value."""
@@ -312,7 +339,10 @@ def header_footer(canvas, doc):
     # Header text
     canvas.setFont('Helvetica', 8)
     canvas.setFillColor(TEXT_SECONDARY)
-    canvas.drawString(50, letter[1] - 35, "GEO-SEO Analysis Report")
+    canvas.drawString(50, letter[1] - 35, "AI Visibility Intelligence Assessment")
+    canvas.setFillColor(HexColor('#8B949E'))
+    canvas.setFont("Helvetica", 10)
+    canvas.drawString(50, letter[1] - 50, "Confidential Document")
 
     # Footer
     canvas.setStrokeColor(lightgrey)
@@ -405,12 +435,12 @@ def generate_report(data, output_path="GEO-REPORT.pdf"):
     elements.append(Spacer(1, 100))
 
     # Title
-    elements.append(Paragraph("GEO Analysis Report", styles['ReportTitle']))
+    elements.append(Paragraph("AI Visibility Intelligence Assessment", styles['ReportTitle']))
     elements.append(Spacer(1, 8))
 
     # Subtitle
     elements.append(Paragraph(
-        f"Generative Engine Optimization Audit for <b>{brand_name}</b>",
+        f"AI Discoverability Audit for <b>{brand_name}</b>",
         styles['ReportSubtitle']
     ))
 
@@ -420,7 +450,7 @@ def generate_report(data, output_path="GEO-REPORT.pdf"):
     details_data = [
         ["Website", url],
         ["Analysis Date", datetime.strptime(date, "%Y-%m-%d").strftime("%B %d, %Y") if "-" in date else date],
-        ["GEO Score", f"{geo_score}/100 — {get_score_label(geo_score)}"],
+        ["AI Discoverability Readiness", f"{geo_score}/100 — {get_score_label(geo_score)}"],
     ]
 
     details_table = Table(details_data, colWidths=[120, 350])
@@ -464,10 +494,10 @@ def generate_report(data, output_path="GEO-REPORT.pdf"):
         elements.append(Paragraph(executive_summary, styles['BodyText_Custom']))
     else:
         elements.append(Paragraph(
-            f"This report presents the findings of a comprehensive Generative Engine Optimization (GEO) "
+            f"This report presents the findings of a comprehensive AI Discoverability (GEO) "
             f"audit conducted on <b>{brand_name}</b> ({url}). The analysis evaluated the website's readiness "
             f"for AI-powered search engines including Google AI Overviews, ChatGPT, Perplexity, Gemini, "
-            f"and Bing Copilot. The overall GEO Readiness Score is <b>{geo_score}/100</b>, "
+            f"and Bing Copilot. The overall AI Discoverability Readiness is <b>{geo_score}/100</b>, "
             f"placing the site in the <b>{get_score_label(geo_score)}</b> tier.",
             styles['BodyText_Custom']
         ))
@@ -477,7 +507,7 @@ def generate_report(data, output_path="GEO-REPORT.pdf"):
     # ============================================================
     # SCORE BREAKDOWN
     # ============================================================
-    elements.append(Paragraph("GEO Score Breakdown", styles['SectionHeader']))
+    elements.append(Paragraph("AI Discoverability Breakdown", styles['SectionHeader']))
     elements.append(HRFlowable(width="100%", thickness=1, color=ACCENT, spaceAfter=12))
 
     score_data = [
@@ -486,8 +516,8 @@ def generate_report(data, output_path="GEO-REPORT.pdf"):
         ["Brand Authority Signals", f"{brand_authority}/100", "20%", f"{round(brand_authority * 0.20, 1)}"],
         ["Content Quality & E-E-A-T", f"{content_eeat}/100", "20%", f"{round(content_eeat * 0.20, 1)}"],
         ["Technical Foundations", f"{technical}/100", "15%", f"{round(technical * 0.15, 1)}"],
-        ["Structured Data", f"{schema_score}/100", "10%", f"{round(schema_score * 0.10, 1)}"],
-        ["Platform Optimization", f"{platform_optimization}/100", "10%", f"{round(platform_optimization * 0.10, 1)}"],
+        ["Explainability Infrastructure", f"{schema_score}/100", "10%", f"{round(schema_score * 0.10, 1)}"],
+        ["Cross-Platform Discovery Presence", f"{platform_optimization}/100", "10%", f"{round(platform_optimization * 0.10, 1)}"],
         ["OVERALL", f"{geo_score}/100", "100%", f"{geo_score}"],
     ]
 
@@ -770,10 +800,10 @@ def generate_report(data, output_path="GEO-REPORT.pdf"):
     elements.append(HRFlowable(width="100%", thickness=1, color=ACCENT, spaceAfter=12))
 
     elements.append(Paragraph(
-        f"This GEO audit was conducted on {date} analyzing {url}. "
+        f"This AI visibility assessment was conducted on {date} analyzing {url}. "
         "The analysis evaluated the website across six dimensions: AI Citability & Visibility (25%), "
         "Brand Authority Signals (20%), Content Quality & E-E-A-T (20%), Technical Foundations (15%), "
-        "Structured Data (10%), and Platform Optimization (10%).",
+        "Explainability Infrastructure (10%), and Cross-Platform Discovery Presence (10%).",
         styles['BodyText_Custom']
     ))
 
@@ -799,13 +829,13 @@ def generate_report(data, output_path="GEO-REPORT.pdf"):
 
     glossary = [
         ["Term", "Definition"],
-        ["GEO", "Generative Engine Optimization — optimizing content for AI search citation"],
+        ["GEO", "AI Discoverability — optimizing content for AI search citation"],
         ["AIO", "AI Overviews — Google's AI-generated answer boxes in search results"],
         ["E-E-A-T", "Experience, Expertise, Authoritativeness, Trustworthiness"],
         ["SSR", "Server-Side Rendering — generating HTML on the server for crawler access"],
         ["CWV", "Core Web Vitals — Google's page experience metrics (LCP, INP, CLS)"],
         ["INP", "Interaction to Next Paint — responsiveness metric (replaced FID March 2024)"],
-        ["JSON-LD", "JavaScript Object Notation for Linked Data — preferred structured data format"],
+        ["AI Infrastructure Object (JSON-LD)", "Preferred machine-readable format for entity explainability and AI interpretation"],
         ["sameAs", "Schema.org property linking an entity to its profiles on other platforms"],
         ["llms.txt", "Proposed standard file for guiding AI systems about site content"],
         ["IndexNow", "Protocol for instantly notifying search engines of content changes"],
@@ -820,7 +850,7 @@ def generate_report(data, output_path="GEO-REPORT.pdf"):
     # Footer disclaimer
     elements.append(HRFlowable(width="100%", thickness=0.5, color=lightgrey, spaceAfter=8))
     elements.append(Paragraph(
-        "This report was generated by the GEO-SEO Claude Code Analysis Tool. "
+        "This assessment was produced by a specialized proprietary AI visibility system. "
         "Scores and recommendations are based on automated analysis and industry benchmarks. "
         "Results should be validated with platform-specific testing.",
         styles['SmallText']
@@ -857,9 +887,9 @@ if __name__ == "__main__":
                 "Bing Copilot": 45,
             },
             "executive_summary": (
-                "This report presents the findings of a comprehensive GEO audit "
+                "This report presents the findings of a comprehensive AI visibility assessment "
                 "conducted on Example Company (https://example.com). The site achieved "
-                "an overall GEO Readiness Score of 58/100, placing it in the Moderate tier. "
+                "an overall AI Discoverability Readiness of 58/100, placing it in the Moderate tier. "
                 "The strongest area is Content Quality (70/100), while Structured Data (30/100) "
                 "represents the biggest opportunity for improvement. Implementing schema markup, "
                 "allowing AI crawlers, and optimizing content structure could increase the score "
@@ -867,7 +897,7 @@ if __name__ == "__main__":
             ),
             "findings": [
                 {"severity": "critical", "title": "No Schema Markup Detected",
-                 "description": "The site has no JSON-LD structured data, making it difficult for AI models to understand entity relationships."},
+                 "description": "The site has no AI Infrastructure Object (JSON-LD) structured data, making it difficult for AI models to understand entity relationships."},
                 {"severity": "high", "title": "JavaScript-Only Rendering",
                  "description": "Key content pages use client-side rendering, making them invisible to AI crawlers that don't execute JavaScript."},
                 {"severity": "high", "title": "Missing llms.txt",

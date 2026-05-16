@@ -6,13 +6,13 @@ description: >
   traditional SEO foundations. Performs full GEO audits, citability scoring,
   AI crawler analysis, llms.txt generation, brand mention scanning, platform-specific
   optimization, schema markup, technical SEO, content quality (E-E-A-T), and
-  client-ready GEO report generation. Use when user says "geo", "seo", "audit",
+  client-ready AI visibility report generation. Use when user says "geo", "seo", "audit",
   "AI search", "AI visibility", "optimize", "citability", "llms.txt", "schema",
-  "brand mentions", "GEO report", or any URL for analysis.
+  "brand mentions", "AI visibility report", or any URL for analysis.
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
 ---
 
-# GEO-SEO Analysis Tool — Claude Code Skill (February 2026)
+# AI Visibility Intelligence — Claude Code Skill (February 2026)
 
 > **Philosophy:** GEO-first, SEO-supported. AI search is eating traditional search.
 > This tool optimizes for where traffic is going, not where it was.
@@ -74,7 +74,7 @@ Launch these 5 subagents simultaneously:
 
 | Subagent | File | Responsibility |
 |----------|------|---------------|
-| geo-ai-visibility | `agents/geo-ai-visibility.md` | GEO audit, citability, AI crawlers, llms.txt, brand mentions |
+| geo-ai-visibility | `agents/geo-ai-visibility.md` | AI visibility assessment, citability, AI crawlers, llms.txt, brand mentions |
 | geo-platform-analysis | `agents/geo-platform-analysis.md` | Platform-specific optimization (ChatGPT, Perplexity, Google AIO) |
 | geo-technical | `agents/geo-technical.md` | Technical SEO, Core Web Vitals, crawlability, indexability |
 | geo-content | `agents/geo-content.md` | Content quality, E-E-A-T, readability, AI content detection |
@@ -82,7 +82,7 @@ Launch these 5 subagents simultaneously:
 
 **Phase 3: Synthesis (Sequential)**
 1. Collect all subagent reports
-2. Calculate composite GEO Score (0-100)
+2. Calculate composite AI Discoverability Readiness (0-100)
 3. Generate prioritized action plan
 4. Output client-ready report
 
@@ -184,7 +184,7 @@ The `/geo report-pdf <url>` command generates a professional, branded PDF report
 3. Execute the PDF generator: `python3 ~/.claude/skills/geo/scripts/generate_pdf_report.py data.json GEO-REPORT.pdf`
 
 ### What the PDF Includes
-- **Cover page** with GEO score gauge visualization
+- **Cover page** with AI Discoverability Readiness gauge visualization
 - **Score breakdown** with color-coded bar charts
 - **AI Platform Readiness** dashboard with horizontal bar chart
 - **Crawler Access** status table with color-coded Allow/Block
@@ -213,7 +213,7 @@ The `/geo report-pdf <url>` command generates a professional, branded PDF report
 ## Quick Start Examples
 
 ```
-# Full GEO audit of a website
+# Full AI visibility assessment of a website
 /geo audit https://example.com
 
 # Check if AI bots can see your site

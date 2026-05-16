@@ -295,7 +295,7 @@ Note: This is a static HTML analysis. Validate with PageSpeed Insights or CrUX d
 
 ## Important Notes
 
-- Server-side rendering analysis is the HIGHEST PRIORITY check. If the page is a client-side SPA with no SSR, this is a critical finding that affects the entire GEO audit.
+- Server-side rendering analysis is the HIGHEST PRIORITY check. If the page is a client-side SPA with no SSR, this is a critical finding that affects the entire AI visibility assessment.
 - Core Web Vitals analysis from HTML source is an estimation of risk, not a measurement. Always note that actual measurements require field data.
 - INP (Interaction to Next Paint) replaced FID (First Input Delay) as of March 2024. Never reference FID as a current Core Web Vital.
 - Security headers are a trust signal for both users and search engines. Missing HTTPS is a critical finding.

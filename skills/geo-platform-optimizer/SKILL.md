@@ -247,7 +247,7 @@ Generate **GEO-PLATFORM-OPTIMIZATION.md** with the following structure:
 Date: [Date]
 
 ## Overall Platform Readiness
-- Combined GEO Score: XX/100 (average of all platform scores)
+- Combined AI Discoverability Readiness: XX/100 (average of all platform scores)
 
 ## Platform Scores
 | Platform | Score | Status |

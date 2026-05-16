@@ -28,7 +28,7 @@ All data is stored in `~/.geo-prospects/prospects.json` (persistent across sessi
 | `/geo prospect list` | Show all prospects with pipeline status |
 | `/geo prospect list <status>` | Filter: lead, qualified, proposal, won, lost |
 | `/geo prospect show <id-or-domain>` | Full prospect detail with history |
-| `/geo prospect audit <id-or-domain>` | Run quick GEO audit and save to prospect record |
+| `/geo prospect audit <id-or-domain>` | Run quick AI visibility assessment and save to prospect record |
 | `/geo prospect note <id-or-domain> "<text>"` | Add interaction note with timestamp |
 | `/geo prospect status <id-or-domain> <new-status>` | Move through pipeline |
 | `/geo prospect won <id-or-domain> <monthly-value>` | Mark as won, set contract value |
@@ -111,7 +111,7 @@ Committed MRR: €6,000 | Pipeline Value: €4,500
 2. Save score to prospect record: `geo_score`, `audit_date`
 3. Save audit output to `~/.geo-prospects/audits/<domain>-<date>.md`
 4. Update `audit_file` path in prospect record
-5. Add auto-note: "Quick audit run. GEO Score: XX/100."
+5. Add auto-note: "Quick audit run. AI Discoverability Readiness: XX/100."
 6. If score < 55: suggest "Score indicates strong sales opportunity. Run `/geo proposal <domain>` to generate proposal."
 
 ### `/geo prospect note <id-or-domain> "<text>"`

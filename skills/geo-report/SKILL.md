@@ -1,17 +1,17 @@
 ---
 name: geo-report
-description: Generate a professional, client-facing GEO report combining all audit results into a single deliverable with scores, findings, and prioritized actions
+description: Generate a professional, executive-facing AI Visibility Intelligence Assessment combining all audit results into a single deliverable with scores, findings, and prioritized actions
 version: 1.0.0
 author: geo-seo-claude
 tags: [geo, report, client-deliverable, executive-summary, action-plan]
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
 ---
 
-# GEO Client Report Generator
+# AI Visibility Intelligence Assessment Generator
 
 ## Purpose
 
-This skill aggregates outputs from all GEO audit skills into a single, professional report that can be delivered directly to a client or stakeholder. The report is written for **business owners and marketing leaders**, not developers — technical findings are translated into business impact and clear action items with priority levels.
+This skill aggregates outputs from all AI visibility assessment skills into a single, professional report that can be delivered directly to a client or stakeholder. The report is written as a **specialized proprietary intelligence brief** for executives — technical findings are reframed as infrastructure analysis and business consequence and clear action items with priority levels.
 
 ## How to Use This Skill
 
@@ -23,27 +23,27 @@ This skill aggregates outputs from all GEO audit skills into a single, professio
    - (Optional) `geo-llmstxt` -> llms.txt assessment
    - (Optional) `geo-brand-mentions` -> brand authority data
 2. Collect all scores and findings
-3. Calculate the composite GEO Readiness Score
+3. Calculate the composite AI Discoverability Readiness
 4. Generate the client report using the template below
-5. Output: GEO-CLIENT-REPORT.md
+5. Output: AI-VISIBILITY-ASSESSMENT.md
 
 ---
 
-## GEO Readiness Score Calculation
+## AI Discoverability Readiness Calculation
 
 ### Component Weights
 
 | Component | Weight | Source Skill |
 |---|---|---|
-| AI Platform Readiness | 25% | geo-platform-optimizer |
-| Content Quality & E-E-A-T | 25% | geo-content |
-| Technical Foundation | 20% | geo-technical |
-| Schema & Structured Data | 15% | geo-schema |
-| Brand Authority & Entity Presence | 15% | geo-platform-optimizer (entity signals) |
+| Cross-Platform Discovery Presence | 25% | geo-platform-optimizer |
+| Knowledge Clarity & E-E-A-T | 25% | geo-content |
+| Discovery Accessibility | 20% | geo-technical |
+| Explainability Infrastructure | 15% | geo-schema |
+| Authority Signal Strength & Entity Presence | 15% | geo-platform-optimizer (entity signals) |
 
 ### Score Formula
 ```
-GEO Score = (Platform Score * 0.25) + (Content Score * 0.25) + (Technical Score * 0.20) + (Schema Score * 0.15) + (Brand Score * 0.15)
+AI Discoverability Readiness = (Platform Score * 0.25) + (Content Score * 0.25) + (Technical Score * 0.20) + (Schema Score * 0.15) + (Brand Score * 0.15)
 ```
 
 Round to the nearest integer. Cap at 100.
@@ -70,19 +70,19 @@ The complete report follows this exact structure. Each section includes instruct
 
 Write exactly ONE paragraph (4-6 sentences) covering:
 - What was analyzed (domain, number of pages, date of analysis)
-- The overall GEO Readiness Score with context ("XX/100, which places [brand] in the [label] tier")
+- The overall AI Discoverability Readiness with context ("XX/100, which places [brand] in the [label] tier")
 - The single most impactful finding (positive or negative)
 - Top 3 priority recommendations in one sentence
 - One sentence on the business impact ("Addressing these recommendations could increase AI-driven traffic by an estimated XX%, representing approximately $X,XXX/month based on current traffic patterns")
 
 **Tone**: Confident, direct, professional. No jargon. No hedging. Write as a consultant delivering findings, not as a tool generating a report.
 
-### Section 2: GEO Readiness Score
+### Section 2: AI Discoverability Readiness
 
 Present the overall score prominently:
 
 ```
-## GEO Readiness Score: XX/100 — [Label]
+## AI Discoverability Readiness: XX/100 — [Label]
 ```
 
 Then break down by component in a table:
@@ -90,11 +90,11 @@ Then break down by component in a table:
 ```markdown
 | Component | Score | Weight | Weighted Score |
 |---|---|---|---|
-| AI Platform Readiness | XX/100 | 25% | XX |
-| Content Quality & E-E-A-T | XX/100 | 25% | XX |
-| Technical Foundation | XX/100 | 20% | XX |
-| Schema & Structured Data | XX/100 | 15% | XX |
-| Brand Authority | XX/100 | 15% | XX |
+| Cross-Platform Discovery Presence | XX/100 | 25% | XX |
+| Knowledge Clarity & E-E-A-T | XX/100 | 25% | XX |
+| Discovery Accessibility | XX/100 | 20% | XX |
+| Explainability Infrastructure | XX/100 | 15% | XX |
+| Authority Signal Strength | XX/100 | 15% | XX |
 | **Overall** | | | **XX/100** |
 ```
 
@@ -136,12 +136,12 @@ Present as a clear table:
 
 **Translate for the client**: "Blocking AI crawlers is like closing your store during business hours. If a crawler cannot access your site, the AI platform it powers cannot cite your content. We recommend allowing all major AI crawlers unless you have a specific data licensing concern."
 
-### Section 5: Brand Authority Analysis
+### Section 5: Authority Signal Strength Analysis
 
 Present entity presence across platforms:
 
 ```markdown
-## Brand Authority
+## Authority Signal Strength
 
 | Platform | Presence | Status | Impact on AI Visibility |
 |---|---|---|---|
@@ -192,10 +192,10 @@ Present the key technical findings in business-friendly language:
 
 **Critical finding callout**: If SSR is missing or partial, highlight this prominently: "Your site uses client-side rendering, which means AI crawlers see an empty page when they visit. This is the single most impactful technical issue for AI search visibility. Until this is resolved, most AI platforms cannot cite your content."
 
-### Section 8: Schema & Structured Data
+### Section 8: Explainability Infrastructure
 
 ```markdown
-## Schema & Structured Data
+## Explainability Infrastructure
 
 ### Current Implementation
 | Schema Type | Present | Status | AI Impact |
@@ -285,14 +285,14 @@ This is the most important section of the report. Organize actions by timeline a
 After the action plan, include an impact estimate:
 
 "Based on industry benchmarks and the specific gaps identified in this audit:
-- **Quick Wins alone** could improve your GEO score by approximately [X-Y] points
-- **Full implementation** of this action plan could improve your GEO score to approximately [XX]/100
+- **Quick Wins alone** could improve your AI Discoverability Readiness by approximately [X-Y] points
+- **Full implementation** of this action plan could improve your AI Discoverability Readiness to approximately [XX]/100
 - At current traffic levels and conversion rates, improved AI visibility represents an estimated **$X,XXX - $XX,XXX per month** in additional organic value"
 
 Use conservative estimates. Base the dollar figure on:
 - Current estimated organic traffic value (from analytics if available, or estimate from industry benchmarks)
 - AI search is projected to drive 25-40% of organic discovery by end of 2026
-- A 10-point GEO score improvement typically correlates with a 15-25% increase in AI citation frequency
+- A 10-point AI Discoverability Readiness improvement typically correlates with a 15-25% increase in AI citation frequency
 
 ### Section 11: Competitor Comparison (if competitor URLs provided)
 
@@ -303,7 +303,7 @@ If competitor URLs were analyzed alongside the primary domain:
 
 | Metric | [Your Brand] | [Competitor 1] | [Competitor 2] |
 |---|---|---|---|
-| Overall GEO Score | XX/100 | XX/100 | XX/100 |
+| Overall AI Discoverability Readiness | XX/100 | XX/100 | XX/100 |
 | Google AIO Readiness | XX/100 | XX/100 | XX/100 |
 | ChatGPT Readiness | XX/100 | XX/100 | XX/100 |
 | Perplexity Readiness | XX/100 | XX/100 | XX/100 |
@@ -325,7 +325,7 @@ If competitor URLs were analyzed alongside the primary domain:
 ## Appendix
 
 ### Methodology
-This GEO audit was conducted using the following methodology:
+This AI visibility assessment was conducted using the following methodology:
 - **Pages analyzed**: [List of specific URLs audited]
 - **Platforms assessed**: Google AI Overviews, ChatGPT, Perplexity AI, Google Gemini, Bing Copilot
 - **Technical checks**: HTTP headers, robots.txt, HTML source analysis, structured data validation
@@ -344,7 +344,7 @@ This GEO audit was conducted using the following methodology:
 
 | Term | Definition |
 |---|---|
-| GEO | Generative Engine Optimization — optimizing content to be cited by AI search platforms |
+| GEO | AI Discoverability — optimizing content to be cited by AI search platforms |
 | AIO | AI Overviews — Google's AI-generated answer boxes at the top of search results |
 | E-E-A-T | Experience, Expertise, Authoritativeness, Trustworthiness — Google's content quality framework |
 | SSR | Server-Side Rendering — generating HTML on the server so crawlers can read content without JavaScript |
@@ -392,7 +392,7 @@ Be conservative with estimates. State assumptions clearly. Never guarantee speci
 
 ## Output
 
-Generate **GEO-CLIENT-REPORT.md** using the complete template above, filled with actual audit data. The report should be:
+Generate **AI-VISIBILITY-ASSESSMENT.md** using the complete template above, filled with actual audit data. The report should be:
 - 40-80 pages equivalent in detail (3,000-6,000 words)
 - Ready to send to a client without editing
 - Self-contained (no references to other report files — all relevant data is included)

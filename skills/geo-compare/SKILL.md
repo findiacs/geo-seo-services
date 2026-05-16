@@ -51,7 +51,7 @@ If only domain is provided:
 ### Step 2: Parse Both Audits
 
 Extract from each audit file:
-- Overall GEO Score
+- Overall AI Discoverability Readiness
 - Per-category scores (6 categories)
 - Per-platform scores (5 platforms)
 - AI crawler status (14 crawlers)
@@ -89,7 +89,7 @@ Generate the following document:
 
 [2-3 sentences: What improved, what's the trend, what to focus on next month.]
 
-Example: "Electron Srl's GEO Score improved from 32 to 44 this month (+12 points),
+Example: "Electron Srl's AI Discoverability Readiness improved from 32 to 44 this month (+12 points),
 placing the site firmly in the 'Below Average' tier and on track to reach 'Moderate'
 by May. The biggest wins were AI crawler access (+3 crawlers now allowed) and schema
 implementation (+Organization and LocalBusiness schemas live). Next month's focus is
@@ -97,7 +97,7 @@ content citability — the highest-weighted remaining gap."
 
 ---
 
-## GEO Score Progress
+## AI Discoverability Readiness Progress
 
 ```
 OVERALL GEO SCORE
@@ -213,7 +213,7 @@ OVERALL GEO SCORE
 | 2 | [Second priority] | [Agency/Client] | +[X] GEO points |
 | 3 | [Third priority] | [Agency/Client] | +[X] GEO points |
 
-**Target GEO Score next month:** [CURRENT + estimated gain]/100
+**Target AI Discoverability Readiness next month:** [CURRENT + estimated gain]/100
 
 ---
 
@@ -259,7 +259,7 @@ When parsing two audit files, look for these patterns:
 
 ```
 Score markers to extract:
-- "GEO Score: XX/100"
+- "AI Discoverability Readiness: XX/100"
 - "Overall Score: XX"
 - "AI Citability: XX/100"
 - "Brand Authority: XX/100"
@@ -299,7 +299,7 @@ fresh audit that weren't visible before. Frame declines as "newly discovered opp
    ✓ Monthly report generated: ~/.geo-prospects/reports/electron-srl.com-monthly-2026-03.md
 
    SUMMARY:
-   GEO Score: 32 → 44 (+12 points) ▲
+   AI Discoverability Readiness: 32 → 44 (+12 points) ▲
    Quick wins completed: 3/5 (60%)
    New issues found: 2 (minor)
    On track for Month 6 target: YES (65/100)

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Dashboard — GEO-SEO CRM{% endblock %}
+{% block title %}Dashboard — AI Visibility Intelligence{% endblock %}
 
 {% block content %}
 
@@ -14,7 +14,7 @@
   <div class="col-6 col-md-4 col-xl-2">
     <div class="kpi-card">
       <div class="kpi-value" style="color:var(--geo-good)">{{ stats.active }}</div>
-      <div class="kpi-label"><i class="bi bi-check-circle me-1"></i>Clienti Attivi</div>
+      <div class="kpi-label"><i class="bi bi-check-circle me-1"></i>Active Clients</div>
     </div>
   </div>
   <div class="col-6 col-md-4 col-xl-2">
@@ -34,7 +34,7 @@
       <div class="kpi-value tier-{{ stats.avg_tier }} score-num" style="font-size:1.9rem">
         {{ stats.avg_score }}<small style="font-size:1rem;color:#8b949e">/100</small>
       </div>
-      <div class="kpi-label"><i class="bi bi-graph-up me-1"></i>GEO Score Medio</div>
+      <div class="kpi-label"><i class="bi bi-graph-up me-1"></i>Avg AI Discoverability</div>
     </div>
   </div>
 </div>
@@ -42,7 +42,7 @@
 <!-- Filters + sort -->
 <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
   <span class="text-secondary" style="font-size:.8rem">Status:</span>
-  <a href="/" class="btn btn-sm {% if not status_filter %}btn-primary{% else %}btn-outline-secondary{% endif %}">Tutti</a>
+  <a href="/" class="btn btn-sm {% if not status_filter %}btn-primary{% else %}btn-outline-secondary{% endif %}">All</a>
   {% for s in statuses %}
     {% set meta = s | status_meta %}
     <a href="/?status={{ s }}&sort={{ sort }}"
@@ -52,14 +52,14 @@
   {% endfor %}
 
   <div class="ms-auto d-flex align-items-center gap-2">
-    <span class="text-secondary" style="font-size:.8rem">Ordina:</span>
+    <span class="text-secondary" style="font-size:.8rem">Sort By:</span>
     <a href="/?status={{ status_filter }}&sort=score"
        class="btn btn-sm {% if sort == 'score' %}btn-primary{% else %}btn-outline-secondary{% endif %}">
        Score
     </a>
     <a href="/?status={{ status_filter }}&sort=company"
        class="btn btn-sm {% if sort == 'company' %}btn-primary{% else %}btn-outline-secondary{% endif %}">
-       Azienda
+       Company
     </a>
     <a href="/?status={{ status_filter }}&sort=mrr"
        class="btn btn-sm {% if sort == 'mrr' %}btn-primary{% else %}btn-outline-secondary{% endif %}">
@@ -74,13 +74,13 @@
   <table class="table align-middle">
     <thead>
       <tr>
-        <th>Azienda</th>
-        <th>Dominio</th>
+        <th>Company</th>
+        <th>Domain</th>
         <th>Status</th>
-        <th>GEO Score</th>
+        <th>AI Discoverability Readiness</th>
         <th>Audit</th>
         <th class="text-end">MRR</th>
-        <th class="text-center">Proposta</th>
+        <th class="text-center">Proposal</th>
         <th class="text-center">PDF</th>
       </tr>
     </thead>
@@ -114,8 +114,8 @@
         <td class="text-center" onclick="event.stopPropagation()">
           <a href="/prospect/{{ p.id }}/pdf"
              class="btn btn-sm btn-outline-danger {% if not p.proposal_file %}disabled{% endif %}"
-             title="Scarica PDF"
-             aria-label="Scarica PDF di {{ p.company }}">
+             title="Download PDF"
+             aria-label="Download PDF for {{ p.company }}">
             <i class="bi bi-file-earmark-pdf"></i>
           </a>
         </td>
@@ -127,9 +127,9 @@
 {% else %}
 <div class="text-center py-5 text-secondary">
   <i class="bi bi-inbox display-4 d-block mb-3"></i>
-  Nessun prospect trovato.
+  No prospects found.
   {% if status_filter %}
-    <a href="/" class="d-block mt-2">Rimuovi filtro</a>
+    <a href="/" class="d-block mt-2">Clear filter</a>
   {% endif %}
 </div>
 {% endif %}

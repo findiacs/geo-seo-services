@@ -1,6 +1,6 @@
 ---
 name: geo-audit
-description: Full website GEO+SEO audit with parallel subagent delegation. Orchestrates a comprehensive Generative Engine Optimization audit across AI citability, platform analysis, technical infrastructure, content quality, and schema markup. Produces a composite GEO Score (0-100) with prioritized action plan.
+description: Full website Visibility Intelligence audit with parallel subagent delegation. Orchestrates a comprehensive AI Discoverability audit across AI citability, platform analysis, technical infrastructure, content quality, and schema markup. Produces a composite AI Discoverability Readiness (0-100) with prioritized action plan.
 allowed-tools:
   - Read
   - Grep
@@ -10,11 +10,11 @@ allowed-tools:
   - Write
 ---
 
-# GEO Audit Orchestration Skill
+# AI Visibility Assessment Orchestration Skill
 
 ## Purpose
 
-This skill performs a comprehensive Generative Engine Optimization (GEO) audit of any website. GEO is the practice of optimizing web content so that AI systems (ChatGPT, Claude, Perplexity, Gemini, etc.) can discover, understand, cite, and recommend it. This audit measures how well a site performs across all GEO dimensions and produces an actionable improvement plan.
+This skill performs a comprehensive AI Discoverability (GEO) audit of any website. GEO is the practice of optimizing web content so that AI systems (ChatGPT, Claude, Perplexity, Gemini, etc.) can discover, understand, cite, and recommend it. This audit measures how well a site performs across all GEO dimensions and produces an actionable improvement plan.
 
 ## Key Insight
 
@@ -118,9 +118,9 @@ Delegate analysis to 5 specialized subagents. Each subagent operates on the coll
 
 ### Phase 3: Score Aggregation and Report Generation
 
-#### Composite GEO Score Calculation
+#### Composite AI Discoverability Readiness Calculation
 
-The overall GEO Score (0-100) is a weighted average of six category scores:
+The overall AI Discoverability Readiness (0-100) is a weighted average of six category scores:
 
 | Category | Weight | What It Measures |
 |---|---|---|
@@ -140,11 +140,11 @@ GEO_Score = (Citability * 0.25) + (Brand * 0.20) + (EEAT * 0.20) + (Technical * 
 
 | Score Range | Rating | Interpretation |
 |---|---|---|
-| 90-100 | Excellent | Top-tier GEO optimization; site is highly likely to be cited by AI |
+| 90-100 | Excellent | Top-tier AI Visibility Optimization; site is highly likely to be cited by AI |
 | 75-89 | Good | Strong GEO foundation with room for improvement |
 | 60-74 | Fair | Moderate GEO presence; significant optimization opportunities exist |
 | 40-59 | Poor | Weak GEO signals; AI systems may struggle to cite or recommend |
-| 0-39 | Critical | Minimal GEO optimization; site is largely invisible to AI systems |
+| 0-39 | Critical | Minimal AI Visibility Optimization; site is largely invisible to AI systems |
 
 ---
 
@@ -191,7 +191,7 @@ Every issue found during the audit is classified by severity:
 Generate a file called `GEO-AUDIT-REPORT.md` with the following structure:
 
 ```markdown
-# GEO Audit Report: [Site Name]
+# AI Visibility Assessment Report: [Site Name]
 
 **Audit Date:** [Date]
 **URL:** [URL]
@@ -202,7 +202,7 @@ Generate a file called `GEO-AUDIT-REPORT.md` with the following structure:
 
 ## Executive Summary
 
-**Overall GEO Score: [X]/100 ([Rating])**
+**Overall AI Discoverability Readiness: [X]/100 ([Rating])**
 
 [2-3 sentence summary of the site's GEO health, biggest strengths, and most critical gaps.]
 
@@ -216,7 +216,7 @@ Generate a file called `GEO-AUDIT-REPORT.md` with the following structure:
 | Technical GEO | [X]/100 | 15% | [X] |
 | Schema & Structured Data | [X]/100 | 10% | [X] |
 | Platform Optimization | [X]/100 | 10% | [X] |
-| **Overall GEO Score** | | | **[X]/100** |
+| **Overall AI Discoverability Readiness** | | | **[X]/100** |
 
 ---
 

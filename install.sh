@@ -7,7 +7,7 @@ set -euo pipefail
 # with an isolated Python virtual environment.
 # ============================================================
 
-REPO_URL="https://github.com/zubair-trabzada/geo-seo-claude.git"
+REPO_URL="https://github.com/Abderraouf-yt/ai-visibility-intelligence.git"
 # Base directories for all supported agents
 CLAUDE_DIR="${HOME}/.claude"
 GEMINI_DIR="${HOME}/.gemini"
@@ -414,7 +414,7 @@ main() {
     echo "    /geo report <url>     Client-ready GEO report"
     echo "    /geo report-pdf       Generate PDF report from audit data"
     echo ""
-    echo "  Documentation: https://github.com/zubair-trabzada/geo-seo-claude"
+    echo "  Documentation: https://github.com/Abderraouf-yt/ai-visibility-intelligence"
     echo ""
 }
 

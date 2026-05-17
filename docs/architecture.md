@@ -3,7 +3,7 @@
 The repository is structured to seamlessly provide GEO+SEO support by using Claude's tool capabilities alongside agents and python utility scripts.
 
 ```
-geo-seo-claude/
+ai-visibility-intelligence/
 ├── geo/                          # Main skill orchestrator
 │   └── SKILL.md                  # Primary skill file with commands & routing
 ├── skills/                       # 13 specialized sub-skills

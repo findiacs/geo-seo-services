@@ -6,7 +6,7 @@ Adds a **Content Signals** check to `geo-crawlers` (new Step 6) and `geo-ai-visi
 
 ## Why
 
-Identified while auditing [isitagentready.com](https://isitagentready.com/), a Cloudflare tool that evaluates agent-layer readiness. It checks for Content Signals; geo-seo-claude did not.
+Identified while auditing [isitagentready.com](https://isitagentready.com/), a Cloudflare tool that evaluates agent-layer readiness. It checks for Content Signals; ai-visibility-intelligence did not.
 
 Content Signals (`draft-romm-aipref-contentsignals`, [contentsignals.org](https://contentsignals.org/)) is an IETF draft that lets site owners declare AI usage preferences directly in `robots.txt` — separate from crawler access rules. The directive looks like:
 

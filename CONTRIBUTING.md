@@ -1,6 +1,6 @@
 # Contributing to GEO-SEO Claude
 
-First off, thank you for considering contributing to `geo-seo-claude`! It's people like you that make it such a great tool.
+First off, thank you for considering contributing to `ai-visibility-intelligence`! It's people like you that make it such a great tool.
 
 Below you'll find guidelines that help explain how to contribute to the project.
 

@@ -22,14 +22,14 @@ npm install -g @anthropic-ai/claude-code
 ### macOS / Linux — one-liner
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/geo-seo-claude/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Abderraouf-yt/ai-visibility-intelligence/main/install.sh | bash
 ```
 
 ### macOS / Linux — manual
 
 ```bash
-git clone https://github.com/zubair-trabzada/geo-seo-claude.git
-cd geo-seo-claude
+git clone https://github.com/Abderraouf-yt/ai-visibility-intelligence.git
+cd ai-visibility-intelligence
 ./install.sh
 ```
 
@@ -39,11 +39,11 @@ PowerShell and Command Prompt are not supported. You must use [Git Bash](https:/
 
 ```bash
 # One-liner (run from Git Bash)
-curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/geo-seo-claude/main/install-win.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Abderraouf-yt/ai-visibility-intelligence/main/install-win.sh | bash
 
 # Manual
-git clone https://github.com/zubair-trabzada/geo-seo-claude.git
-cd geo-seo-claude
+git clone https://github.com/Abderraouf-yt/ai-visibility-intelligence.git
+cd ai-visibility-intelligence
 ./install-win.sh
 ```
 

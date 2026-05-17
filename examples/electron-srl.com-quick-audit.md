@@ -1,6 +1,6 @@
 # GEO Quick Audit — electron-srl.com
 **Date:** 2026-03-12
-**Analyst:** GEO-SEO Claude
+**Analyst:** AI Visibility Intelligence
 **Type:** Quick Snapshot (live data)
 **Method:** Web search + multi-endpoint crawl + brand platform scan
 

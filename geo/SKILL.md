@@ -3,7 +3,7 @@ name: geo
 description: >
   GEO-first SEO analysis tool. Optimizes websites for AI-powered search engines
   (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews) while maintaining
-  traditional SEO foundations. Performs full GEO audits, citability scoring,
+  foundational discovery accessibility. Performs full GEO audits, citability scoring,
   AI crawler analysis, llms.txt generation, brand mention scanning, platform-specific
   optimization, schema markup, technical SEO, content quality (E-E-A-T), and
   client-ready AI visibility report generation. Use when user says "geo", "seo", "audit",

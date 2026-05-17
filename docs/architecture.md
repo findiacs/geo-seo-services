@@ -1,6 +1,6 @@
 # Architecture & Design
 
-The repository is structured to seamlessly provide GEO+SEO support by using Claude's tool capabilities alongside agents and python utility scripts.
+The repository is structured to seamlessly provide AI Visibility Intelligence support by using Claude's tool capabilities alongside agents and python utility scripts.
 
 ```
 ai-visibility-intelligence/
@@ -14,7 +14,7 @@ ai-visibility-intelligence/
 │   ├── geo-brand-mentions/       # Brand presence on AI-cited platforms
 │   ├── geo-platform-optimizer/   # Platform-specific AI search optimization
 │   ├── geo-schema/               # Structured data for AI discoverability
-│   ├── geo-technical/            # Technical SEO foundations
+│   ├── geo-technical/            # Technical discovery accessibility
 │   ├── geo-content/              # Content quality & E-E-A-T
 │   ├── geo-report/               # Client-ready markdown report generation
 │   ├── geo-report-pdf/           # Professional PDF report with charts
@@ -22,7 +22,7 @@ ai-visibility-intelligence/
 │   ├── geo-proposal/             # Auto-generate client proposals
 │   └── geo-compare/              # Monthly delta tracking & progress reports
 ├── agents/                       # 5 parallel subagents
-│   ├── geo-ai-visibility.md      # GEO audit, citability, crawlers, brands
+│   ├── geo-ai-visibility.md      # AI Visibility audit, citability, crawlers, brands
 │   ├── geo-platform-analysis.md  # Platform-specific optimization
 │   ├── geo-technical.md          # Technical SEO analysis
 │   ├── geo-content.md            # Content & E-E-A-T analysis
@@ -57,7 +57,7 @@ When you run `/geo audit https://example.com`:
    - Technical SEO (Core Web Vitals, SSR, security, mobile)
    - Content Quality (E-E-A-T, readability, freshness)
    - Schema Markup (detection, validation, generation)
-3. **Synthesis** — Aggregates scores, generates composite GEO Score (0-100)
+3. **Synthesis** — Aggregates scores, generates composite AI Discoverability Readiness (0-100)
 4. **Report** — Outputs prioritized action plan with quick wins
 
 ### Data Storage

@@ -1,6 +1,6 @@
 # Scoring Methodology
 
-The GEO Score is a single composite number from 0 to 100 that summarises how well a website is optimised for discovery, citation, and recommendation by AI systems such as ChatGPT, Perplexity, Claude, and Google AI Overviews. It is computed as a weighted average of six category sub-scores, each evaluated independently by a specialised subagent. A high score signals strong readiness for generative-engine visibility; a low score points to concrete gaps with an accompanying prioritised action plan.
+The AI Discoverability Readiness is a single composite number from 0 to 100 that summarises how well a website is optimised for discovery, citation, and recommendation by AI systems such as ChatGPT, Perplexity, Claude, and Google AI Overviews. It is computed as a weighted average of six category sub-scores, each evaluated independently by a specialised subagent. A high score signals strong readiness for generative-engine visibility; a low score points to concrete gaps with an accompanying prioritised action plan.
 
 ---
 
@@ -264,7 +264,7 @@ A strong platform score requires passing the crawler-access and entity-recogniti
 
 **Weights are opinionated.** The 25/20/20/15/10/10 weight distribution reflects the judgement of the tool's authors about the relative importance of each category for AI citation likelihood at the time of writing. These weights are not derived from a controlled study and are subject to change as AI search platforms evolve.
 
-**Diagnostic, not a guarantee.** The GEO Score is a diagnostic instrument. A high score improves the structural conditions for AI citation but does not guarantee that any particular AI system will cite or recommend the site. AI model behaviour depends on many factors outside the scope of this tool, including model training data, query phrasing, and competitor content.
+**Diagnostic, not a guarantee.** The AI Discoverability Readiness is a diagnostic instrument. A high score improves the structural conditions for AI citation but does not guarantee that any particular AI system will cite or recommend the site. AI model behaviour depends on many factors outside the scope of this tool, including model training data, query phrasing, and competitor content.
 
 **Schema validation is structural, not semantic.** The schema agent checks that JSON-LD is syntactically valid, uses recognised Schema.org types and properties, and includes required fields. It does not verify that the values are accurate or that the described entity matches the actual organisation or person. A schema block that passes validation may still contain incorrect information.
 

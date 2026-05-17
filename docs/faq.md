@@ -4,9 +4,9 @@
 
 ## General
 
-### What is GEO and how is it different from SEO?
+### What is AI Visibility and how is it different from SEO?
 
-SEO (Search Engine Optimization) targets ranking in traditional search engines like Google's blue-link results. GEO (Generative Engine Optimization) targets visibility inside AI-generated answers from systems like ChatGPT, Perplexity, Claude, Gemini, and Google AI Overviews. The two disciplines overlap — technical foundations and content quality matter for both — but GEO adds concerns specific to AI retrieval: citability scoring, brand mention density, llms.txt, and entity recognition across AI-cited platforms.
+SEO (Search Engine Optimization) targets ranking in traditional search engines like Google's blue-link results. AI Visibility (Generative Engine Optimization) targets visibility inside AI-generated answers from systems like ChatGPT, Perplexity, Claude, Gemini, and Google AI Overviews. The two disciplines overlap — technical foundations and content quality matter for both — but AI Visibility adds concerns specific to AI retrieval: citability scoring, brand mention density, llms.txt, and entity recognition across AI-cited platforms.
 
 ### Is this a paid tool or service?
 
@@ -14,11 +14,11 @@ The tool itself is free and MIT-licensed. It runs entirely within your own Claud
 
 ### Who is this for?
 
-GEO agencies running client audits, in-house marketing teams monitoring AI search visibility, content creators optimizing individual pages for AI citations, and developers building or maintaining web properties who want actionable GEO and SEO feedback without a SaaS subscription.
+AI Visibility agencies running client audits, in-house marketing teams monitoring AI search visibility, content creators optimizing individual pages for AI citations, and developers building or maintaining web properties who want actionable AI Visibility and SEO feedback without a SaaS subscription.
 
 ### Does this replace my existing SEO stack?
 
-No. It complements existing tools. The `/geo technical` command covers technical SEO foundations, but the tool does not replace crawlers like Screaming Frog, keyword research platforms, or rank trackers. Its primary value is the GEO layer — AI citability, crawler access, brand signals, and platform readiness — that most traditional SEO tools do not cover.
+No. It complements existing tools. The `/geo technical` command covers technical discovery accessibility, but the tool does not replace crawlers like Screaming Frog, keyword research platforms, or rank trackers. Its primary value is the AI Visibility layer — AI citability, crawler access, brand signals, and platform readiness — that most traditional SEO tools do not cover.
 
 ---
 
@@ -46,9 +46,9 @@ Playwright is optional. The installer prompts you to install it (`python3 -m pla
 
 ### What is the difference between `/geo quick` and `/geo audit`?
 
-`/geo quick` produces a 60-second inline visibility snapshot and writes no output file. It is useful for a fast read on a URL before committing to a full run. `/geo audit` is the full workflow: it fetches the site, detects the business type, launches 5 parallel subagents, aggregates scores across all categories, and writes a `GEO-AUDIT-REPORT.md` with a prioritized action plan. See [commands-reference.md](commands-reference.md) for the complete command list.
+`/geo quick` produces a 60-second inline visibility snapshot and writes no output file. It is useful for a fast read on a URL before committing to a full run. `/geo audit` is the full workflow: it fetches the site, detects the business type, launches 5 parallel subagents, aggregates scores across all categories, and writes a `AI Visibility-AUDIT-REPORT.md` with a prioritized action plan. See [commands-reference.md](commands-reference.md) for the complete command list.
 
-### Where does the composite GEO Score come from?
+### Where does the composite AI Discoverability Readiness come from?
 
 The score (0-100) is a weighted aggregate across six categories: AI Citability & Visibility (25%), Brand Authority Signals (20%), Content Quality & E-E-A-T (20%), Technical Foundations (15%), Structured Data (10%), and Platform Optimization (10%). See [scoring-methodology.md](scoring-methodology.md) for how individual signals within each category are measured.
 

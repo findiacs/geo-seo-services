@@ -1,6 +1,6 @@
-# Contributing to GEO-SEO Claude
+# Contributing to AI Visibility Intelligence
 
-First off, thank you for considering contributing to `ai-visibility-intelligence`! It's people like you that make it such a great tool.
+Thank you for considering contributing to the AI Visibility Intelligence infrastructure.
 
 Below you'll find guidelines that help explain how to contribute to the project.
 
@@ -21,7 +21,7 @@ The process described here has several goals:
 
 1. Maintain the quality of the tool.
 2. Fix problems that are important to users.
-3. Engage the community in working toward the best possible product.
+3. Maintain operational rigor and strategic capability alignment.
 
 Please follow these steps to have your contribution considered by the maintainers:
 

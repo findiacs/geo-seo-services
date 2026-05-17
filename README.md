@@ -8,11 +8,6 @@
 </p>
 
 <p align="center">
-  Executive-grade platform operated by Abderraouf-yt, AI Visibility Engineer. Assesses and remediates recommendation readiness and cross-platform discovery presence.
-</p>
-
-
-<p align="center">
   <img src="https://img.shields.io/badge/Claude_Code-Supported-blue?style=for-the-badge&logo=anthropic" alt="Claude Code Supported"/>
   <img src="https://img.shields.io/badge/Gemini_CLI-Supported-blue?style=for-the-badge&logo=google" alt="Gemini CLI Supported"/>
   <img src="https://img.shields.io/badge/Codex_CLI-Supported-blue?style=for-the-badge&logo=openai" alt="Codex CLI Supported"/>
@@ -22,42 +17,80 @@
 
 ---
 
-## Why AI Discoverability Matters (2026)
+## 1. Executive Introduction
+
+An AI Visibility Intelligence platform designed to assess how modern AI systems interpret, trust, and recommend businesses across digital discovery environments.
+
+This executive-grade platform operates as a specialized intelligence infrastructure. It evaluates discoverability, recommendation readiness, AI perception gaps, and the underlying trust infrastructure necessary for entity inclusion in LLM-mediated discovery.
+
+## 2. Platform Positioning
+
+The platform transcends legacy search optimization by mapping the specific pathways AI models utilize to construct knowledge graphs. It answers a critical strategic question: *How do foundational models perceive and cite this entity?*
 
 | Metric | Value |
 |--------|-------|
 | AI Visibility services market | $850M+ (projected $7.3B by 2031) |
 | AI-referred traffic growth | +527% year-over-year |
 | AI traffic conversion rate vs organic | 4.4x higher |
-| Gartner: search traffic drop by 2028 | -50% |
 | Brand mentions vs backlinks for AI | 3x stronger correlation |
 | Marketers investing in AI Discoverability | Only 23% |
 
+## 3. Core Intelligence Capabilities
+
+The intelligence layer is capable of conducting deep diagnostic sweeps across multiple visibility vectors:
+
+- **AI Discoverability Assessments:** Comprehensive evaluations of how an entity is processed by LLM architectures.
+- **Recommendation Readiness Analysis:** Scoring content blocks for AI citation extraction readiness and fact-density.
+- **AI Trust Signal Evaluation:** Correlating distributed brand mentions across high-trust AI-cited platforms (e.g., YouTube, Reddit, LinkedIn).
+- **Discovery Accessibility Diagnostics:** Analyzing server-side rendering pipelines and AI-crawler access controls to ensure seamless ingestion.
+- **Explainability Infrastructure:** Validating and structuring entity-relationship data (JSON-LD) for precise model interpretation.
+
+## 4. Assessment & Reporting Layer
+
+The system aggregates visibility diagnostics into premium, institutional decision-oriented intelligence reports.
+
+These outputs translate underlying capability gaps into a deterministic **AI Discoverability Readiness** score, framing technical deficiencies as business consequence and infrastructure risk. Reports are generated in both markdown and executive-ready PDF formats, featuring score gauges, platform readiness visualizations, and prioritized visibility remediation paths.
+
+## 5. AI Visibility Infrastructure Assets
+
+Beyond assessment, the system generates targeted remediation files designed to reinforce AI perception:
+- Validated `llms.txt` schema files to guide crawler ingestion.
+- Machine-readable structured data architectures mapping entity relationships.
+- Targeted adjustments to crawler access governance.
+
+## 6. Operational Architecture
+
+The platform coordinates specialized parallel agents to handle distinct visibility vectors simultaneously without exposing complex underlying orchestration to the end-user.
+
+```text
+ai-visibility-intelligence/
+├── geo/                          # Intelligence orchestrator
+├── skills/                       # Specialized assessment and reporting modules
+├── agents/                       # Parallel discovery and analysis agents
+├── scripts/                      # Core assessment logic, PDF generation, and scoring
+├── schema/                       # Base architectural templates for entity explainability
+├── install.sh                    # One-command installer
+├── install-win.sh                # Windows deployment module
+└── requirements.txt              # Infrastructure dependencies
+```
+
+Data privacy is strictly maintained. Pipeline records, intelligence reports, and engagement proposals are stored locally in isolated runtime directories (`~/.geo-prospects/`), ensuring client confidentiality is structurally enforced.
+
 ---
 
-
-## 1. Executive Introduction
-
-A proprietary AI Visibility Intelligence platform designed to assess how modern AI systems interpret, understand, trust, and recommend businesses across digital discovery surfaces.
-
-This executive-grade platform operates as a specialized intelligence infrastructure. It evaluates discoverability, recommendation readiness, AI perception gaps, and the underlying trust infrastructure necessary for entity inclusion in LLM-mediated discovery.
-
----
-
-## Quick Start
+## 7. Setup / Installation
 
 ### One-Command Install (macOS/Linux)
 
-The installation script automatically detects and installs the skills and agents to all supported AI coding assistants on your system (Claude Code, Gemini CLI, Codex CLI, OpenCode, and Antigravity IDE).
+The installation script automatically detects and installs the intelligence modules to all supported AI coding assistants on your system.
 
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/Abderraouf-yt/ai-visibility-intelligence/main/install.sh | bash
+```console
+curl -fsSL https://raw.githubusercontent.com/Abderraouf-yt/ai-visibility-intelligence/main/install.sh > install.sh && chmod +x install.sh && ./install.sh
 ```
 
 ### Manual Install
 
-```bash
+```console
 git clone https://github.com/Abderraouf-yt/ai-visibility-intelligence.git
 cd ai-visibility-intelligence
 ./install.sh
@@ -67,9 +100,9 @@ cd ai-visibility-intelligence
 
 Requires [Git for Windows](https://git-scm.com/downloads) which includes Git Bash.
 
-```bash
+```console
 # Option 1: One-command install (run from Git Bash, not PowerShell/CMD)
-curl -fsSL https://raw.githubusercontent.com/Abderraouf-yt/ai-visibility-intelligence/main/install-win.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Abderraouf-yt/ai-visibility-intelligence/main/install-win.sh > install-win.sh && chmod +x install-win.sh && ./install-win.sh
 
 # Option 2: Manual install
 git clone https://github.com/Abderraouf-yt/ai-visibility-intelligence.git
@@ -84,208 +117,56 @@ cd ai-visibility-intelligence
 - Python 3.8+ (on Debian/Ubuntu also `python3-venv`)
 - Claude Code CLI
 - Git
-- Optional: [`uv`](https://docs.astral.sh/uv/) — if present, the installer uses it for a faster dependency install
-- Optional: Playwright (for screenshots)
+- Optional: [`uv`](https://docs.astral.sh/uv/) — for accelerated dependency resolution
+- Optional: Playwright — for rendering pipeline diagnostics
 
-### Isolated install
+### Isolated Deployment
 
-Python dependencies are installed into a dedicated virtual environment at
-`~/.claude/skills/geo/.venv/`. Your system Python is **not** touched, and
-uninstalling the skill removes the venv together with the rest of the files.
-
-Skill and agent files reference that venv directly, so the tool works
-regardless of what `python3` resolves to on your `PATH`.
+Dependencies are installed into a dedicated virtual environment at `~/.claude/skills/geo/.venv/`. Your system environment remains untouched. Uninstallation guarantees the complete removal of the runtime environment.
 
 ---
 
-## Commands
+## 8. Usage
 
-Open Claude Code and use these commands:
+The intelligence assessment suite is executed via the command line interface:
 
-| Command | What It Does |
+| Command | Capability |
 |---------|-------------|
 | `/geo audit <url>` | Full AI visibility intelligence assessment with parallel subagents |
 | `/geo quick <url>` | 60-second discovery accessibility snapshot |
-| `/geo citability <url>` | Score content for AI citation readiness |
-| `/geo crawlers <url>` | Check AI crawler access (robots.txt) |
-| `/geo llmstxt <url>` | Analyze or generate llms.txt |
-| `/geo brands <url>` | Scan brand mentions across AI-cited platforms |
-| `/geo platforms <url>` | Platform-specific optimization |
-| `/geo schema <url>` | Structured data analysis & generation |
-| `/geo technical <url>` | Discovery Accessibility audit |
-| `/geo content <url>` | Content quality & E-E-A-T assessment |
-| `/geo report <url>` | Generate executive intelligence report |
-| `/geo report-pdf` | Generate professional PDF report with charts & visualizations |
+| `/geo citability <url>` | Score content for AI reference eligibility |
+| `/geo crawlers <url>` | Diagnose AI crawler access governance |
+| `/geo llmstxt <url>` | Analyze or generate AI interpretation files |
+| `/geo brands <url>` | Scan authority signals across AI-cited platforms |
+| `/geo platforms <url>` | Cross-platform discovery optimization |
+| `/geo schema <url>` | Explainability infrastructure analysis & generation |
+| `/geo technical <url>` | Discovery accessibility audit |
+| `/geo content <url>` | Knowledge clarity & entity assessment |
 
 ---
 
-## Component Architecture
+## 9. Report Generation
 
-```
-ai-visibility-intelligence/
-├── geo/                          # Main skill orchestrator
-│   └── SKILL.md                  # Primary skill file with commands & routing
-├── skills/                       # 13 specialized sub-skills
-│   ├── geo-audit/                # Full audit orchestration & scoring
-│   ├── geo-citability/           # AI citation readiness scoring
-│   ├── geo-crawlers/             # AI crawler access analysis
-│   ├── geo-llmstxt/              # llms.txt standard analysis & generation
-│   ├── geo-brand-mentions/       # Brand presence on AI-cited platforms
-│   ├── geo-platform-optimizer/   # Platform-specific AI search optimization
-│   ├── geo-schema/               # Structured data for AI discoverability
-│   ├── geo-technical/            # Discovery Accessibility foundations
-│   ├── geo-content/              # Content quality & E-E-A-T
-│   ├── geo-report/               # Client-ready markdown report generation
-│   ├── geo-report-pdf/           # Professional PDF report with charts
-│   ├── geo-prospect/             # CRM-lite prospect pipeline management
-│   ├── geo-proposal/             # Auto-generate client proposals
-│   └── geo-compare/              # Monthly delta tracking & progress reports
-├── agents/                       # 5 parallel subagents
-│   ├── geo-ai-visibility.md      # Discovery intelligence audit, citability, crawlers, brands
-│   ├── geo-platform-analysis.md  # Platform-specific optimization
-│   ├── geo-technical.md          # Discovery Accessibility analysis
-│   ├── geo-content.md            # Content & E-E-A-T analysis
-│   └── geo-schema.md             # Schema markup analysis
-├── scripts/                      # Python utilities
-│   ├── fetch_page.py             # Page fetching & parsing
-│   ├── citability_scorer.py      # AI citability scoring engine
-│   ├── brand_scanner.py          # Brand mention detection
-│   ├── llmstxt_generator.py      # llms.txt validation & generation
-│   └── generate_pdf_report.py    # PDF report generator (ReportLab)
-├── schema/                       # JSON-LD templates
-│   ├── organization.json         # Organization schema (with sameAs)
-│   ├── local-business.json       # LocalBusiness schema
-│   ├── article-author.json       # Article + Person schema (E-E-A-T)
-│   ├── software-saas.json        # SoftwareApplication schema
-│   ├── product-ecommerce.json    # Product schema with offers
-│   └── website-searchaction.json # WebSite + SearchAction schema
-├── install.sh                    # One-command installer
-├── uninstall.sh                  # Uninstaller
-├── requirements.txt              # Python dependencies
-└── README.md                     # This file
-```
+To generate executive deliverables after an assessment:
+
+| Command | Output |
+|---------|-------------|
+| `/geo report <url>` | Generate executive intelligence report (Markdown) |
+| `/geo report-pdf` | Generate professional PDF report with intelligence visualizations |
 
 ---
 
-## Data Storage
+## 10. Security / Confidentiality Positioning
 
-The CRM and reporting skills (`/geo prospect`, `/geo proposal`, `/geo compare`) store runtime data outside the Claude Code directory:
+This infrastructure is engineered for professional advisory engagements. Client pipeline data, generated intelligence reports, and engagement files remain strictly localized on the host machine.
 
-```
-~/.geo-prospects/
-├── prospects.json              # Client/prospect pipeline data
-├── proposals/                  # Generated proposal documents
-│   └── <domain>-proposal-<date>.md
-└── reports/                    # Monthly delta reports
-    └── <domain>-monthly-<YYYY-MM>.md
-```
-
-This directory is **not removed** by the uninstaller — delete it manually if you no longer need your prospect data.
-
----
-
-## 3. Infrastructure Layer
-
-### Full Audit Flow
-
-When you run `/geo audit https://example.com`:
-
-1. **Discovery** — Fetches homepage, detects business type, crawls sitemap
-2. **Parallel Analysis** — Launches 5 subagents simultaneously:
-   - AI Visibility (citability, crawlers, llms.txt, brand mentions)
-   - Platform Analysis (ChatGPT, Perplexity, Google AIO readiness)
-   - Discovery Accessibility (Core Web Vitals, SSR, security, mobile)
-   - Content Quality (E-E-A-T, readability, freshness)
-   - Schema Markup (detection, validation, generation)
-3. **Synthesis** — Aggregates scores, generates composite AI Discoverability Readiness (0-100)
-4. **Report** — Outputs prioritized action plan with quick wins
-
-### Scoring Methodology
-
-| Category | Weight |
-|----------|--------|
-| AI Reference Eligibility & Visibility | 25% |
-| Brand Authority Signals | 20% |
-| Knowledge Clarity | 20% |
-| Technical Foundations | 15% |
-| Structured Data | 10% |
-| Platform Optimization | 10% |
-
----
-
-## 2. Core Capabilities
-
-### Citability Scoring
-Analyzes content blocks for AI citation readiness. Optimal AI-cited passages are 134-167 words, self-contained, fact-rich, and directly answer questions.
-
-### AI Crawler Analysis
-Checks robots.txt for 14+ AI crawlers (GPTBot, ClaudeBot, PerplexityBot, etc.) and provides specific allow/block recommendations.
-
-### Brand Mention Scanning
-Brand mentions correlate 3x more strongly with AI visibility than backlinks. Scans YouTube, Reddit, Wikipedia, LinkedIn, and 7+ other platforms.
-
-### Platform-Specific Optimization
-Only 11% of domains are cited by both ChatGPT and Google AI Overviews for the same query. Provides tailored recommendations per platform.
-
-### llms.txt Generation
-Generates the emerging llms.txt standard file that helps AI crawlers understand your site structure.
-
-## 4. Report System
-Generates premium, institutional decision-oriented intelligence reports in markdown or PDF format. Reports include score gauges, platform readiness visualizations, and prioritized visibility diagnostics — ready for executive delivery.
-
-
----
-
-## Strategic Applications
-
-- **Visibility Intelligence Operators** — Run intelligence assessments and generate deliverables
-- **Marketing Teams** — Monitor and improve AI search visibility
-- **Content Creators** — Optimize content for AI citations
-- **Local Businesses** — Get found by AI assistants
-- **SaaS Companies** — Improve entity recognition across AI platforms
-- **E-commerce** — Optimize product pages for AI shopping recommendations
-
----
-
-## Uninstall
-
-```bash
+To remove the platform and all executable logic:
+```console
 ./uninstall.sh
 ```
-
-Or manually:
-```bash
-rm -rf ~/.claude/skills/geo ~/.claude/skills/geo-* ~/.claude/agents/geo-*.md
-```
+*(Note: Client records stored in `~/.geo-prospects/` must be manually archived or deleted to prevent accidental data loss.)*
 
 ---
 
-## Commercial Deployment & Advisory Licensing
-
-Access specialized operator playbooks, institutional pricing models, and strategic deployment documentation for the AI Visibility Intelligence platform.
-
-**[Join the AI Workshop Community →](https://skool.com/aiworkshop)**
-
-Inside you'll get:
-- **Video walkthroughs** — Step-by-step setup, running audits, reading results
-- **Client acquisition playbook** — How to find prospects, pitch AI Discoverability services, and close deals
-- **Live office hours** — Bring your audit results, get direct help
-- **Visibility operator pricing & templates** — Proposal docs, cold outreach scripts, onboarding workflows
-
-Intelligence operators utilize this infrastructure to deliver premium $2K–$12K/month visibility assessments and remediation programs.
-
----
-
-## License
-
-MIT License
-
----
-
-## Contributing
-
-Contributions welcome!
-
----
-
-Engineered for AI-mediated discovery and recommendation readiness.
+**Proprietary Infrastructure**
+Operated and maintained by Abderraouf-yt, AI Visibility Engineer.

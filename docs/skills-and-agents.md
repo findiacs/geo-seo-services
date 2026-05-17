@@ -1,6 +1,6 @@
 # Skills, Agents, Scripts, and Schemas
 
-This reference describes every moving part in the `ai-visibility-intelligence` skill bundle. The bundle optimizes websites for Generative Engine Optimization (GEO) — making content discoverable and citable by AI search platforms (ChatGPT, Perplexity, Google AI Overviews, Gemini, Bing Copilot) — while maintaining traditional SEO foundations. It is structured as one orchestrator skill, 14 sub-skills, 5 parallel subagents, 6 Python helper scripts, and 6 JSON-LD schema templates.
+This reference describes every moving part in the `ai-visibility-intelligence` skill bundle. The bundle evaluates and enforces AI recommendation readiness — ensuring entity discoverability and explainability across LLM architectures (ChatGPT, Perplexity, Google AI Overviews, Gemini, Bing Copilot) — while maintaining foundational discovery accessibility. It is structured as one orchestrator skill, 14 sub-skills, 5 parallel subagents, 6 Python helper scripts, and 6 JSON-LD schema templates.
 
 See [commands-reference.md](commands-reference.md) for the full slash-command reference and [architecture.md](architecture.md) for how the parallel subagent flow works during a full audit.
 
@@ -8,7 +8,7 @@ See [commands-reference.md](commands-reference.md) for the full slash-command re
 
 ## Orchestrator
 
-- **geo** (`geo/SKILL.md`) — Entry point for all GEO commands. Detects business type, dispatches sub-skills for individual commands, and coordinates the three-phase full-audit flow: discovery, parallel subagent delegation, and score synthesis. Produces a composite GEO Score (0–100) weighted across six categories.
+- **geo** (`geo/SKILL.md`) — Entry point for all AI Visibility commands. Detects business type, dispatches sub-skills for individual commands, and coordinates the three-phase full-audit flow: discovery, parallel subagent delegation, and score synthesis. Produces a composite AI Discoverability Readiness (0–100) weighted across six categories.
 
 ---
 
@@ -16,14 +16,14 @@ See [commands-reference.md](commands-reference.md) for the full slash-command re
 
 ### geo-audit
 
-**Purpose:** Orchestrates a full GEO + SEO audit of a website by running discovery, delegating to five parallel subagents, and aggregating their scores into a single composite GEO Score.
+**Purpose:** Orchestrates a full AI Visibility + SEO audit of a website by running discovery, delegating to five parallel subagents, and aggregating their scores into a single composite AI Discoverability Readiness.
 
 **Inputs:** A URL. Optionally, pre-crawled page data.
 
-**Outputs:** `GEO-AUDIT-REPORT.md` — composite score, per-category breakdown, issue severity list (Critical / High / Medium / Low), 30-day action plan, and an appendix of pages analyzed.
+**Outputs:** `AI Visibility-AUDIT-REPORT.md` — composite score, per-category breakdown, issue severity list (Critical / High / Medium / Low), 30-day action plan, and an appendix of pages analyzed.
 
 **Scoring weights:**
-- AI Citability 25%, Brand Authority 20%, Content E-E-A-T 20%, Technical GEO 15%, Structured Data 10%, Platform Optimization 10%
+- AI Citability 25%, Brand Authority 20%, Content E-E-A-T 20%, Technical AI Visibility 15%, Structured Data 10%, Platform Optimization 10%
 
 **Dependencies:** Delegates to all five subagents (`geo-ai-visibility`, `geo-platform-analysis`, `geo-technical`, `geo-content`, `geo-schema`).
 
@@ -37,7 +37,7 @@ See [commands-reference.md](commands-reference.md) for `/geo audit`.
 
 **Inputs:** A URL (fetched with WebFetch).
 
-**Outputs:** `GEO-CITABILITY-SCORE.md` — per-section scores, top citation-ready passages, weakest blocks with rewrite suggestions, and a citability coverage percentage.
+**Outputs:** `AI Visibility-CITABILITY-SCORE.md` — per-section scores, top citation-ready passages, weakest blocks with rewrite suggestions, and a citability coverage percentage.
 
 **Scoring dimensions (per passage):** Answer Block Quality (30%), Self-Containment (25%), Structural Readability (20%), Statistical Density (15%), Uniqueness (10%).
 
@@ -53,7 +53,7 @@ See [commands-reference.md](commands-reference.md) for `/geo citability`.
 
 **Inputs:** A domain URL.
 
-**Outputs:** `GEO-CRAWLER-ACCESS.md` — per-crawler status (Allowed / Blocked / Not Mentioned), AI Visibility Score, recommended `robots.txt` configuration, and JavaScript rendering assessment.
+**Outputs:** `AI Visibility-CRAWLER-ACCESS.md` — per-crawler status (Allowed / Blocked / Not Mentioned), AI Visibility Score, recommended `robots.txt` configuration, and JavaScript rendering assessment.
 
 **Crawler tiers:**
 - Tier 1 (search visibility): GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot
@@ -70,9 +70,9 @@ See [commands-reference.md](commands-reference.md) for `/geo crawlers`.
 
 **Inputs:** A domain URL. Operates in analysis mode (file exists) or generation mode (file absent).
 
-**Outputs (analysis mode):** `GEO-LLMSTXT-ANALYSIS.md` — format validation table, missing pages, overall llms.txt score (Completeness 40%, Accuracy 35%, Usefulness 25%).
+**Outputs (analysis mode):** `AI Visibility-LLMSTXT-ANALYSIS.md` — format validation table, missing pages, overall llms.txt score (Completeness 40%, Accuracy 35%, Usefulness 25%).
 
-**Outputs (generation mode):** A ready-to-deploy `llms.txt` file and `GEO-LLMSTXT-GENERATION.md` explaining page selection rationale.
+**Outputs (generation mode):** A ready-to-deploy `llms.txt` file and `AI Visibility-LLMSTXT-GENERATION.md` explaining page selection rationale.
 
 **Dependencies:** `scripts/llmstxt_generator.py` provides validation and generation helpers.
 
@@ -86,7 +86,7 @@ See [commands-reference.md](commands-reference.md) for `/geo llmstxt`.
 
 **Inputs:** Brand name, domain URL, industry (gathered from the site if not provided).
 
-**Outputs:** `GEO-BRAND-MENTIONS.md` — per-platform scores (YouTube 25%, Reddit 25%, Wikipedia/Wikidata 20%, LinkedIn 15%, Other 15%), sentiment assessment, composite Brand Authority Score, and prioritized recommendations.
+**Outputs:** `AI Visibility-BRAND-MENTIONS.md` — per-platform scores (YouTube 25%, Reddit 25%, Wikipedia/Wikidata 20%, LinkedIn 15%, Other 15%), sentiment assessment, composite Brand Authority Score, and prioritized recommendations.
 
 **Key insight:** YouTube mention correlation with AI citation is ~0.737; Domain Rating correlation is ~0.266 (Ahrefs, December 2025 study of 75,000 brands).
 
@@ -102,7 +102,7 @@ See [commands-reference.md](commands-reference.md) for `/geo brands`.
 
 **Inputs:** A URL and the site's primary topic or industry.
 
-**Outputs:** `GEO-PLATFORM-OPTIMIZATION.md` — per-platform scores and gaps for Google AI Overviews, ChatGPT Web Search, Perplexity AI, Google Gemini, and Bing Copilot; a cross-platform priority action plan.
+**Outputs:** `AI Visibility-PLATFORM-OPTIMIZATION.md` — per-platform scores and gaps for Google AI Overviews, ChatGPT Web Search, Perplexity AI, Google Gemini, and Bing Copilot; a cross-platform priority action plan.
 
 **Platform-specific top factors:** AIO → top-10 ranking + Q&A structure; ChatGPT → Wikipedia entity; Perplexity → Reddit presence + original research; Gemini → YouTube + Knowledge Panel; Bing Copilot → IndexNow + Bing Webmaster Tools.
 
@@ -116,9 +116,9 @@ See [commands-reference.md](commands-reference.md) for `/geo platforms`.
 
 **Inputs:** A URL. Uses `scripts/fetch_page.py` to retrieve raw HTML including `<head>` content (WebFetch strips it).
 
-**Outputs:** `GEO-SCHEMA-REPORT.md` — detected schemas with validation results, `sameAs` entity-linking audit, deprecated schema flags (HowTo removed Sep 2023, FAQPage restricted Aug 2023), and ready-to-paste JSON-LD code blocks.
+**Outputs:** `AI Visibility-SCHEMA-REPORT.md` — detected schemas with validation results, `sameAs` entity-linking audit, deprecated schema flags (HowTo removed Sep 2023, FAQPage restricted Aug 2023), and ready-to-paste JSON-LD code blocks.
 
-**GEO-critical schemas:** Organization + `sameAs`, Article + Author (Person), speakable property, BreadcrumbList, WebSite + SearchAction.
+**AI Visibility-critical schemas:** Organization + `sameAs`, Article + Author (Person), speakable property, BreadcrumbList, WebSite + SearchAction.
 
 **Dependencies:** `scripts/fetch_page.py` (raw HTML extraction); `schema/*.json` templates (used as generation references).
 
@@ -132,7 +132,7 @@ See [commands-reference.md](commands-reference.md) for `/geo schema`.
 
 **Inputs:** A homepage URL plus 2–3 key inner pages.
 
-**Outputs:** `GEO-TECHNICAL-AUDIT.md` — category scores, AI crawler access table, SSR assessment, Core Web Vitals risk (LCP / INP / CLS), security headers, and mobile optimization status.
+**Outputs:** `AI Visibility-TECHNICAL-AUDIT.md` — category scores, AI crawler access table, SSR assessment, Core Web Vitals risk (LCP / INP / CLS), security headers, and mobile optimization status.
 
 **Scoring categories (max points):** Server-Side Rendering 15, Core Web Vitals 15, Crawlability 15, Indexability 12, Security 10, Mobile 10, Page Speed 15, URL Structure 8.
 
@@ -148,7 +148,7 @@ See [commands-reference.md](commands-reference.md) for `/geo technical`.
 
 **Inputs:** A URL (fetched with WebFetch).
 
-**Outputs:** `GEO-CONTENT-ANALYSIS.md` — E-E-A-T scores (25 points each), content metrics table, AI content assessment, topical authority rating, freshness assessment, and rewrite recommendations.
+**Outputs:** `AI Visibility-CONTENT-ANALYSIS.md` — E-E-A-T scores (25 points each), content metrics table, AI content assessment, topical authority rating, freshness assessment, and rewrite recommendations.
 
 **Score modifiers:** Topical authority adds +10 to −5 points on top of the base 100-point E-E-A-T score.
 
@@ -162,7 +162,7 @@ See [commands-reference.md](commands-reference.md) for `/geo content`.
 
 **Inputs:** Output files from `geo-platform-optimizer`, `geo-schema`, `geo-technical`, `geo-content`, and optionally `geo-llmstxt` and `geo-brand-mentions`.
 
-**Outputs:** `GEO-CLIENT-REPORT.md` — executive summary, GEO Readiness Score, AI Visibility Dashboard, crawler access table, brand authority table, citability analysis, technical health summary, schema status, action plan with effort and platform impact, and a full glossary appendix. Target length: 3,000–6,000 words.
+**Outputs:** `AI Visibility-CLIENT-REPORT.md` — executive summary, AI Visibility Readiness Score, AI Visibility Dashboard, crawler access table, brand authority table, citability analysis, technical health summary, schema status, action plan with effort and platform impact, and a full glossary appendix. Target length: 3,000–6,000 words.
 
 See [commands-reference.md](commands-reference.md) for `/geo report`.
 
@@ -170,11 +170,11 @@ See [commands-reference.md](commands-reference.md) for `/geo report`.
 
 ### geo-report-pdf
 
-**Purpose:** Generates a professionally formatted, client-ready PDF from GEO audit data using ReportLab. Includes score gauges, bar charts, and color-coded tables.
+**Purpose:** Generates a professionally formatted, client-ready PDF from AI Visibility audit data using ReportLab. Includes score gauges, bar charts, and color-coded tables.
 
-**Inputs:** Existing `GEO-AUDIT-REPORT.md` or `GEO-CLIENT-REPORT.md` files in the current directory. If a URL is passed, runs the full audit first.
+**Inputs:** Existing `AI Visibility-AUDIT-REPORT.md` or `AI Visibility-CLIENT-REPORT.md` files in the current directory. If a URL is passed, runs the full audit first.
 
-**Outputs:** `GEO-REPORT-[brand].pdf` — cover page with score gauge, score breakdown with bar chart, AI platform readiness chart, crawler access table (green/red coded), findings by severity, action plan, and methodology appendix.
+**Outputs:** `AI Visibility-REPORT-[brand].pdf` — cover page with score gauge, score breakdown with bar chart, AI platform readiness chart, crawler access table (green/red coded), findings by severity, action plan, and methodology appendix.
 
 **Dependencies:** `scripts/generate_pdf_report.py` (requires `pip install reportlab`).
 
@@ -184,7 +184,7 @@ See [commands-reference.md](commands-reference.md) for `/geo report-pdf`.
 
 ### geo-prospect
 
-**Purpose:** CRM-lite for managing GEO agency prospects through a five-stage sales pipeline (lead → qualified → proposal → won → lost). Persists all data in `~/.geo-prospects/prospects.json`.
+**Purpose:** CRM-lite for managing AI Visibility agency prospects through a five-stage sales pipeline (lead → qualified → proposal → won → lost). Persists all data in `~/.geo-prospects/prospects.json`.
 
 **Inputs:** Domain names, contact details, status updates, and notes entered via sub-commands.
 
@@ -200,7 +200,7 @@ See [commands-reference.md](commands-reference.md) for `/geo prospect`.
 
 ### geo-proposal
 
-**Purpose:** Auto-generates a client-ready GEO service proposal from audit data, including executive summary, score breakdown, three service tiers with pricing, ROI projection, and engagement timeline.
+**Purpose:** Auto-generates a client-ready AI Visibility service proposal from audit data, including executive summary, score breakdown, three service tiers with pricing, ROI projection, and engagement timeline.
 
 **Inputs:** Domain name or path to an existing audit file. Reads prospect record from `~/.geo-prospects/prospects.json` if available.
 
@@ -214,7 +214,7 @@ See [commands-reference.md](commands-reference.md) for `/geo proposal`.
 
 ### geo-compare
 
-**Purpose:** Generates a monthly delta report comparing two GEO audits (baseline vs. current), tracking score improvements across all categories and action-item completion status.
+**Purpose:** Generates a monthly delta report comparing two AI Visibility audits (baseline vs. current), tracking score improvements across all categories and action-item completion status.
 
 **Inputs:** A domain name or two audit file paths. Reads files from `~/.geo-prospects/audits/` sorted by date if only domain is provided.
 
@@ -226,13 +226,13 @@ See [commands-reference.md](commands-reference.md) for `/geo compare`.
 
 ## Parallel Subagents
 
-These five agents run simultaneously during a `/geo audit` to reduce total runtime. Each returns a structured markdown section and a category score (0–100) that feeds the composite GEO Score. See [architecture.md](architecture.md) for the parallel flow diagram.
+These five agents run simultaneously during a `/geo audit` to reduce total runtime. Each returns a structured markdown section and a category score (0–100) that feeds the composite AI Discoverability Readiness. See [architecture.md](architecture.md) for the parallel flow diagram.
 
 ### geo-ai-visibility
 
 **File:** `agents/geo-ai-visibility.md`
 
-**Role:** GEO specialist covering the four highest-weighted AI visibility dimensions.
+**Role:** AI Visibility specialist covering the four highest-weighted AI visibility dimensions.
 
 **Dispatched when:** Phase 2 of `/geo audit` begins.
 

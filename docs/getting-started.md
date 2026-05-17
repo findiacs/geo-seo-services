@@ -67,7 +67,7 @@ After installation, open Claude Code in any project directory and run:
 /geo quick https://example.com
 ```
 
-If the skill is wired up correctly, Claude Code will start a 60-second GEO visibility snapshot. If you see "unknown command" or nothing happens, restart Claude Code — it reads skills and agents at startup.
+If the skill is wired up correctly, Claude Code will start a 60-second AI Visibility visibility snapshot. If you see "unknown command" or nothing happens, restart Claude Code — it reads skills and agents at startup.
 
 To confirm the files landed in the right place:
 
@@ -87,7 +87,7 @@ ls ~/.claude/agents/ | grep geo
 /geo quick https://yoursite.com
 ```
 
-Returns a high-level GEO visibility score and the top issues. Good for a first look or a fast client check.
+Returns a high-level AI Visibility visibility score and the top issues. Good for a first look or a fast client check.
 
 ### Full path — complete audit
 
@@ -95,7 +95,7 @@ Returns a high-level GEO visibility score and the top issues. Good for a first l
 /geo audit https://yoursite.com
 ```
 
-Launches 5 parallel subagents covering AI visibility, platform optimization, technical SEO, content quality, and structured data. Produces a prioritized action plan with a composite GEO score (0–100).
+Launches 5 parallel subagents covering AI visibility, platform optimization, technical SEO, content quality, and structured data. Produces a prioritized action plan with a composite AI Discoverability Readiness (0–100).
 
 The full audit takes several minutes depending on the site. See [scoring-methodology.md](scoring-methodology.md) for how the score is calculated and [commands-reference.md](commands-reference.md) for all available commands.
 

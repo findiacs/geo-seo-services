@@ -1,6 +1,6 @@
-# GEO-SEO Claude Code Skill — Documentation
+# AI Visibility Intelligence Platform — Documentation
 
-`ai-visibility-intelligence` is a Claude Code skill bundle that runs GEO (Generative Engine Optimization) and SEO audits against a website. It orchestrates 13 sub-skills, 5 parallel subagents, and a set of Python utilities to produce a composite GEO Score (0–100) and a prioritized action plan.
+`ai-visibility-intelligence` is a Claude Code skill bundle that runs comprehensive AI Discoverability and Recommendation Readiness assessments against a website. It orchestrates 13 sub-skills, 5 parallel subagents, and a set of Python utilities to produce a composite AI Discoverability Readiness (0–100) and a prioritized action plan.
 
 If you are new here, start with **Getting Started**. If you are contributing, skim **Architecture** and **Skills & Agents** first.
 
@@ -12,7 +12,7 @@ If you are new here, start with **Getting Started**. If you are contributing, sk
 | [Commands Reference](commands-reference.md) | Every `/geo` slash command with usage, arguments, output, and when to use it. |
 | [Architecture](architecture.md) | Repo layout, audit flow, parallel subagent dispatch, data storage. |
 | [Skills & Agents](skills-and-agents.md) | Reference for every sub-skill, subagent, Python script, and schema template. |
-| [Scoring Methodology](scoring-methodology.md) | How the composite GEO Score is computed, per-category signals, caveats. |
+| [Scoring Methodology](scoring-methodology.md) | How the composite AI Discoverability Readiness is computed, per-category signals, caveats. |
 | [FAQ](faq.md) | Common questions for users and contributors. |
 | [Contributing](../CONTRIBUTING.md) | How to report bugs, propose features, and open PRs. |
 

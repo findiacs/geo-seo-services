@@ -10,8 +10,8 @@ This file documents every command in the `ai-visibility-intelligence` skill bund
 
 | Command | Description |
 |---------|-------------|
-| `/geo audit <url>` | Full GEO + SEO audit with parallel subagents |
-| `/geo quick <url>` | 60-second GEO visibility snapshot |
+| `/geo audit <url>` | Full AI Visibility + SEO audit with parallel subagents |
+| `/geo quick <url>` | 60-second AI Visibility visibility snapshot |
 | `/geo citability <url>` | Score a single page for AI citation readiness |
 | `/geo crawlers <url>` | Check AI crawler access via robots.txt and meta tags |
 | `/geo llmstxt <url>` | Analyze an existing llms.txt or generate one from scratch |
@@ -23,14 +23,14 @@ This file documents every command in the `ai-visibility-intelligence` skill bund
 | Command | Description |
 |---------|-------------|
 | `/geo schema <url>` | Detect, validate, and generate Schema.org structured data |
-| `/geo technical <url>` | Technical SEO audit with GEO-specific checks |
+| `/geo technical <url>` | Technical SEO audit with AI Visibility-specific checks |
 | `/geo content <url>` | Content quality and E-E-A-T assessment |
 
 **Reports** — client-ready deliverables
 
 | Command | Description |
 |---------|-------------|
-| `/geo report <url>` | Generate a client-ready GEO report in Markdown |
+| `/geo report <url>` | Generate a client-ready AI Visibility report in Markdown |
 | `/geo report-pdf <url>` | Generate a professional PDF report with charts and visualizations |
 
 **CRM** — prospect and client pipeline management
@@ -45,7 +45,7 @@ This file documents every command in the `ai-visibility-intelligence` skill bund
 
 ## /geo audit
 
-Performs a comprehensive GEO + SEO audit of a website using five parallel subagents.
+Performs a comprehensive AI Visibility + SEO audit of a website using five parallel subagents.
 
 **Usage**
 
@@ -57,7 +57,7 @@ Performs a comprehensive GEO + SEO audit of a website using five parallel subage
 
 - Phase 1 (sequential): fetches the homepage, detects business type (SaaS, Local, E-commerce, Publisher, Agency), and crawls up to 50 pages from the sitemap or internal links.
 - Phase 2 (parallel): delegates to five specialized subagents simultaneously — AI visibility, platform analysis, technical SEO, content E-E-A-T, and schema markup. See [architecture.md](architecture.md) for the subagent flow.
-- Phase 3 (sequential): aggregates subagent scores into a weighted composite GEO Score (0–100). See [scoring-methodology.md](scoring-methodology.md) for the weighting formula.
+- Phase 3 (sequential): aggregates subagent scores into a weighted composite AI Discoverability Readiness (0–100). See [scoring-methodology.md](scoring-methodology.md) for the weighting formula.
 - Classifies every issue by severity: Critical, High, Medium, or Low.
 - Produces a 30-day action plan with weekly themes.
 
@@ -69,7 +69,7 @@ Performs a comprehensive GEO + SEO audit of a website using five parallel subage
 
 **Output**
 
-Writes `GEO-AUDIT-REPORT.md` to the working directory. Contains: executive summary, score breakdown table, per-category deep dives, issue list by severity, quick wins, and a week-by-week 30-day action plan. Inline summary is also printed to the terminal.
+Writes `AI Visibility-AUDIT-REPORT.md` to the working directory. Contains: executive summary, score breakdown table, per-category deep dives, issue list by severity, quick wins, and a week-by-week 30-day action plan. Inline summary is also printed to the terminal.
 
 **When to use it**
 
@@ -79,7 +79,7 @@ Run this first for any new client or site; it is the entry point for all other a
 
 ## /geo quick
 
-Delivers a 60-second GEO visibility snapshot without writing any output file.
+Delivers a 60-second AI Visibility visibility snapshot without writing any output file.
 
 **Usage**
 
@@ -90,8 +90,8 @@ Delivers a 60-second GEO visibility snapshot without writing any output file.
 **What it does**
 
 - Fetches the homepage and a small sample of key pages.
-- Runs a lightweight pass across the main GEO signals: AI crawler access, llms.txt presence, schema on the homepage, and a rough citability read on the hero content.
-- Produces an approximate GEO score and a short list of the highest-impact gaps.
+- Runs a lightweight pass across the main AI Visibility signals: AI crawler access, llms.txt presence, schema on the homepage, and a rough citability read on the hero content.
+- Produces an approximate AI Discoverability Readiness and a short list of the highest-impact gaps.
 - Feeds directly into `/geo prospect audit` when called from the CRM workflow.
 
 **Inputs**
@@ -135,7 +135,7 @@ Scores a single page for AI citation readiness using a five-dimension rubric.
 
 **Output**
 
-Writes `GEO-CITABILITY-SCORE.md`. Contains: overall citability score, weighted score table, strongest/weakest block analysis with quoted excerpts, rewrite suggestions, and a per-section score table.
+Writes `AI Visibility-CITABILITY-SCORE.md`. Contains: overall citability score, weighted score table, strongest/weakest block analysis with quoted excerpts, rewrite suggestions, and a per-section score table.
 
 **When to use it**
 
@@ -169,7 +169,7 @@ Analyzes which AI crawlers can access the site and provides a recommended robots
 
 **Output**
 
-Writes `GEO-CRAWLER-ACCESS.md`. Contains: access summary table per crawler, an AI visibility score (0–100), critical issues list, and a complete ready-to-paste robots.txt block configured for maximum AI visibility.
+Writes `AI Visibility-CRAWLER-ACCESS.md`. Contains: access summary table per crawler, an AI visibility score (0–100), critical issues list, and a complete ready-to-paste robots.txt block configured for maximum AI visibility.
 
 **When to use it**
 
@@ -201,8 +201,8 @@ Analyzes an existing `llms.txt` file for quality, or generates a new one from sc
 
 **Output**
 
-- Analysis mode: writes `GEO-LLMSTXT-ANALYSIS.md` with validation results, missing pages, and a suggested updated file.
-- Generation mode: writes the ready-to-deploy `llms.txt` file and a brief `GEO-LLMSTXT-GENERATION.md` summarizing prioritization decisions.
+- Analysis mode: writes `AI Visibility-LLMSTXT-ANALYSIS.md` with validation results, missing pages, and a suggested updated file.
+- Generation mode: writes the ready-to-deploy `llms.txt` file and a brief `AI Visibility-LLMSTXT-GENERATION.md` summarizing prioritization decisions.
 
 **When to use it**
 
@@ -235,7 +235,7 @@ Scans brand mentions across the platforms AI systems rely on for entity recognit
 
 **Output**
 
-Writes `GEO-BRAND-MENTIONS.md`. Contains: Brand Authority Score (0–100), per-platform breakdown tables, sentiment assessment, competitive context table (if competitors are identified), and prioritized recommendations grouped by time horizon (week 1–2, month 1–3, month 3–12).
+Writes `AI Visibility-BRAND-MENTIONS.md`. Contains: Brand Authority Score (0–100), per-platform breakdown tables, sentiment assessment, competitive context table (if competitors are identified), and prioritized recommendations grouped by time horizon (week 1–2, month 1–3, month 3–12).
 
 **When to use it**
 
@@ -270,7 +270,7 @@ Audits readiness for each major AI search platform individually and produces per
 
 **Output**
 
-Writes `GEO-PLATFORM-OPTIMIZATION.md`. Contains: an overall combined score, per-platform score table, per-platform gap analysis with specific actions, and a prioritized action plan (quick wins, medium-term, strategic). See [scoring-methodology.md](scoring-methodology.md) for platform weight in the composite score.
+Writes `AI Visibility-PLATFORM-OPTIMIZATION.md`. Contains: an overall combined score, per-platform score table, per-platform gap analysis with specific actions, and a prioritized action plan (quick wins, medium-term, strategic). See [scoring-methodology.md](scoring-methodology.md) for platform weight in the composite score.
 
 **When to use it**
 
@@ -292,9 +292,9 @@ Detects all structured data on a site, validates it against Schema.org specifica
 
 - Fetches raw HTML using `fetch_page.py` (not WebFetch, which strips `<head>` content) to extract all JSON-LD, Microdata, and RDFa blocks.
 - Validates each schema: JSON syntax, valid `@type`, required properties, recommended properties, `sameAs` links, URL validity, nesting, and whether the schema is server-rendered or JS-injected.
-- Checks for GEO-critical schema types: Organization, LocalBusiness, Article with Author, Product, FAQPage, SoftwareApplication, WebSite with SearchAction, and BreadcrumbList.
+- Checks for AI Visibility-critical schema types: Organization, LocalBusiness, Article with Author, Product, FAQPage, SoftwareApplication, WebSite with SearchAction, and BreadcrumbList.
 - Audits the `sameAs` property against a priority list of 14 platforms (Wikipedia, Wikidata, LinkedIn, YouTube, Twitter/X, GitHub, Crunchbase, etc.).
-- Generates complete JSON-LD code blocks using the `@graph` pattern for any missing or incomplete schemas. See [scoring-methodology.md](scoring-methodology.md) for how schema score feeds the composite GEO Score.
+- Generates complete JSON-LD code blocks using the `@graph` pattern for any missing or incomplete schemas. See [scoring-methodology.md](scoring-methodology.md) for how schema score feeds the composite AI Discoverability Readiness.
 
 **Inputs**
 
@@ -304,7 +304,7 @@ Detects all structured data on a site, validates it against Schema.org specifica
 
 **Output**
 
-Writes `GEO-SCHEMA-REPORT.md`. Contains: schema score (0–100), detected schemas table, per-property validation results, missing schema list, sameAs audit table, and ready-to-paste JSON-LD code blocks with implementation notes.
+Writes `AI Visibility-SCHEMA-REPORT.md`. Contains: schema score (0–100), detected schemas table, per-property validation results, missing schema list, sameAs audit table, and ready-to-paste JSON-LD code blocks with implementation notes.
 
 **When to use it**
 
@@ -341,7 +341,7 @@ Performs a technical SEO audit across eight categories with special emphasis on 
 
 **Output**
 
-Writes `GEO-TECHNICAL-AUDIT.md`. Contains: technical score (0–100), per-category score table with Pass/Warn/Fail status, AI crawler access table, critical issues list, warnings, and recommendations.
+Writes `AI Visibility-TECHNICAL-AUDIT.md`. Contains: technical score (0–100), per-category score table with Pass/Warn/Fail status, AI crawler access table, critical issues list, warnings, and recommendations.
 
 **When to use it**
 
@@ -375,7 +375,7 @@ Evaluates content quality through the E-E-A-T framework (Experience, Expertise, 
 
 **Output**
 
-Writes `GEO-CONTENT-ANALYSIS.md`. Contains: content score (0–100), E-E-A-T breakdown table, pages-analyzed table, detailed findings per dimension, content quality issues with rewrite suggestions, AI content concerns, freshness assessment, most and least citable passages, content gap recommendations, and E-E-A-T improvement steps.
+Writes `AI Visibility-CONTENT-ANALYSIS.md`. Contains: content score (0–100), E-E-A-T breakdown table, pages-analyzed table, detailed findings per dimension, content quality issues with rewrite suggestions, AI content concerns, freshness assessment, most and least citable passages, content gap recommendations, and E-E-A-T improvement steps.
 
 **When to use it**
 
@@ -395,8 +395,8 @@ Aggregates outputs from all audit skills into a single professional, client-faci
 
 **What it does**
 
-- Reads existing `GEO-*.md` audit files from the working directory; runs missing audits automatically if needed.
-- Calculates a composite GEO Readiness Score: AI Platform Readiness 25%, Content E-E-A-T 25%, Technical Foundation 20%, Schema 15%, Brand Authority 15%. See [scoring-methodology.md](scoring-methodology.md).
+- Reads existing `AI Visibility-*.md` audit files from the working directory; runs missing audits automatically if needed.
+- Calculates a composite AI Visibility Readiness Score: AI Platform Readiness 25%, Content E-E-A-T 25%, Technical Foundation 20%, Schema 15%, Brand Authority 15%. See [scoring-methodology.md](scoring-methodology.md).
 - Translates all technical findings into business-impact language aimed at owners and marketing leaders, not developers.
 - Produces 12 structured sections: executive summary, score dashboard, AI visibility dashboard (per platform), AI crawler access table, brand authority analysis, citability analysis (top 5 / bottom 5 pages), technical health summary, schema status, llms.txt status, prioritized action plan (quick wins / medium / strategic), competitor comparison (if competitors were analyzed), and glossary appendix.
 - Includes conservative traffic and revenue impact estimates tied to score improvements.
@@ -409,7 +409,7 @@ Aggregates outputs from all audit skills into a single professional, client-faci
 
 **Output**
 
-Writes `GEO-CLIENT-REPORT.md`. The report is 3,000–6,000 words, self-contained, and ready to deliver without further editing.
+Writes `AI Visibility-CLIENT-REPORT.md`. The report is 3,000–6,000 words, self-contained, and ready to deliver without further editing.
 
 **When to use it**
 
@@ -419,7 +419,7 @@ Use this to produce the final deliverable after running the full audit suite, or
 
 ## /geo report-pdf
 
-Converts GEO audit data into a professionally formatted PDF with charts, score gauges, and color-coded tables.
+Converts AI Visibility audit data into a professionally formatted PDF with charts, score gauges, and color-coded tables.
 
 **Usage**
 
@@ -429,7 +429,7 @@ Converts GEO audit data into a professionally formatted PDF with charts, score g
 
 **What it does**
 
-- Checks the working directory for existing `GEO-CLIENT-REPORT.md` or `GEO-AUDIT-REPORT.md`; if none are found, runs a full audit first.
+- Checks the working directory for existing `AI Visibility-CLIENT-REPORT.md` or `AI Visibility-AUDIT-REPORT.md`; if none are found, runs a full audit first.
 - Parses the Markdown report to extract scores, platform readiness numbers, crawler status, findings, and action items.
 - Assembles the data into the JSON schema expected by the PDF generation script.
 - Calls `python3 ~/.claude/skills/geo/scripts/generate_pdf_report.py` (requires `pip install reportlab`).
@@ -443,7 +443,7 @@ Converts GEO audit data into a professionally formatted PDF with charts, score g
 
 **Output**
 
-Writes `GEO-REPORT-<brand>.pdf` to the working directory. The PDF contains: cover page with score gauge, executive summary, score breakdown bar chart, AI platform readiness horizontal bar chart, crawler access color-coded table, key findings by severity, prioritized action plan, and a methodology/glossary appendix. File path and size are reported on completion.
+Writes `AI Visibility-REPORT-<brand>.pdf` to the working directory. The PDF contains: cover page with score gauge, executive summary, score breakdown bar chart, AI platform readiness horizontal bar chart, crawler access color-coded table, key findings by severity, prioritized action plan, and a methodology/glossary appendix. File path and size are reported on completion.
 
 **When to use it**
 
@@ -471,7 +471,7 @@ A CRM-lite pipeline manager for tracking prospects and clients from initial disc
 
 **What it does**
 
-- Stores all prospect data in `~/.geo-prospects/prospects.json` as persistent JSON records containing ID, company, domain, status, GEO score, audit file path, proposal file path, monthly contract value, and timestamped notes.
+- Stores all prospect data in `~/.geo-prospects/prospects.json` as persistent JSON records containing ID, company, domain, status, AI Discoverability Readiness, audit file path, proposal file path, monthly contract value, and timestamped notes.
 - Tracks five pipeline stages: `lead`, `qualified`, `proposal`, `won`, `lost`.
 - `prospect audit` calls `/geo quick` and saves the resulting score to the prospect record.
 - `prospect pipeline` prints a revenue-focused summary showing committed MRR, pipeline value, and suggested next actions per record.
@@ -493,13 +493,13 @@ Updates `~/.geo-prospects/prospects.json`. Audit snapshots saved to `~/.geo-pros
 
 **When to use it**
 
-Use this to manage an ongoing GEO agency sales pipeline and track client history across sessions.
+Use this to manage an ongoing AI Visibility agency sales pipeline and track client history across sessions.
 
 ---
 
 ## /geo proposal
 
-Auto-generates a fully customized, client-ready GEO service proposal from audit data.
+Auto-generates a fully customized, client-ready AI Visibility service proposal from audit data.
 
 **Usage**
 
@@ -519,7 +519,7 @@ Auto-generates a fully customized, client-ready GEO service proposal from audit 
 **What it does**
 
 - Loads the most recent audit file from `~/.geo-prospects/audits/<domain>*.md` (or runs `/geo quick` if none exists).
-- Selects a recommended service tier based on GEO score: 0–40 → Premium, 41–60 → Standard, 61–75 → Basic.
+- Selects a recommended service tier based on AI Discoverability Readiness: 0–40 → Premium, 41–60 → Standard, 61–75 → Basic.
 - Populates a 12-section proposal template: executive summary, market context tables, audit findings, three-tier service packages with pricing (Basic €2,500/mo, Standard €5,000/mo, Premium €9,500/mo), ROI projection table, six-month engagement timeline, investment summary, and terms.
 - Updates the prospect record status to `proposal` and saves the proposal file path.
 
@@ -538,7 +538,7 @@ Writes `~/.geo-prospects/proposals/<domain>-proposal-<date>.md`. Prints confirma
 
 **When to use it**
 
-Use this immediately after a prospect audit when the GEO score indicates a clear sales opportunity (score below 75).
+Use this immediately after a prospect audit when the AI Discoverability Readiness indicates a clear sales opportunity (score below 75).
 
 ---
 
@@ -557,7 +557,7 @@ Generates a monthly delta report comparing a baseline audit to a current audit, 
 **What it does**
 
 - Locates audit files in `~/.geo-prospects/audits/` matching the domain; uses the oldest as baseline and the newest as current. If only one file exists, runs a fresh quick audit as the current snapshot.
-- Extracts overall GEO score, all six category scores, all five platform scores, and AI crawler status from both files.
+- Extracts overall AI Discoverability Readiness, all six category scores, all five platform scores, and AI crawler status from both files.
 - Calculates deltas and assigns trend symbols (▲▲ strong improvement, ▲ improvement, ── unchanged, ▼ decline, ▼▼ significant decline).
 - Tracks completion status of quick wins, medium-term, and strategic action items.
 - Includes a six-month trajectory table and a conservative business impact estimate (AI citation likelihood change, crawler coverage, estimated traffic value).
@@ -584,5 +584,5 @@ Run this on the first of each month for every active client to generate the prog
 The following discrepancies were found between `geo/SKILL.md` and the `skills/` directory:
 
 - **`/geo quick`**: Listed in `geo/SKILL.md` and referenced throughout the codebase (by `geo-prospect` and `geo-compare`), but there is no `skills/geo-quick/SKILL.md`. The quick-scan behavior is documented only through the orchestration instructions in `geo/SKILL.md` and the `geo-prospect` skill. This command is documented above based on those references.
-- **`/geo page`**: Listed in `geo/SKILL.md`'s quick reference table (as `/geo page <url>` — deep single-page GEO analysis) and in the output files table (produces `GEO-PAGE-ANALYSIS.md`), but there is no `skills/geo-page/SKILL.md`. No implementation exists. This command is **not documented** in the reference above because there is no skill file to draw from.
+- **`/geo page`**: Listed in `geo/SKILL.md`'s quick reference table (as `/geo page <url>` — deep single-page AI Visibility analysis) and in the output files table (produces `AI Visibility-PAGE-ANALYSIS.md`), but there is no `skills/geo-page/SKILL.md`. No implementation exists. This command is **not documented** in the reference above because there is no skill file to draw from.
 - **`/geo quick` in original `docs/commands-reference.md`**: The old table listed `/geo quick` but `geo/SKILL.md` does not list it in the sub-skills table (only in the quick reference table). It is referenced as a real behavior in the prospect and compare skills, so it is retained above.

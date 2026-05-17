@@ -1,268 +1,206 @@
-<p align="center">
-  <img src="assets/banner.svg" alt="GEO-SEO Universal Agent Skill" width="900"/>
-</p>
+# AI Visibility Intelligence
 
 <p align="center">
-  <strong>GEO-first, SEO-supported.</strong> Optimize websites for AI-powered search engines<br/>
-  (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews) while maintaining traditional SEO foundations.
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" alt="Status Active"/>
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License MIT"/>
 </p>
 
-<p align="center">
-  AI search is eating traditional search. This tool optimizes for where traffic is going, not where it was.
-</p>
+## AI Visibility Assessment Infrastructure
 
+AI Visibility Intelligence platform for assessing how modern AI systems interpret, trust, and recommend businesses across digital discovery environments.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Claude_Code-Supported-blue?style=for-the-badge&logo=anthropic" alt="Claude Code Supported"/>
-  <img src="https://img.shields.io/badge/Gemini_CLI-Supported-blue?style=for-the-badge&logo=google" alt="Gemini CLI Supported"/>
-  <img src="https://img.shields.io/badge/Codex_CLI-Supported-blue?style=for-the-badge&logo=openai" alt="Codex CLI Supported"/>
-  <img src="https://img.shields.io/badge/OpenCode-Supported-blue?style=for-the-badge" alt="OpenCode Supported"/>
-  <img src="https://img.shields.io/badge/Antigravity_IDE-Supported-blue?style=for-the-badge" alt="Antigravity IDE Supported"/>
-</p>
+The platform provides comprehensive readiness assessments to ensure brand discoverability across large language models, AI search engines, and emerging conversational discovery platforms.
 
 ---
 
-## Why GEO Matters (2026)
+## Strategic Significance
 
-| Metric | Value |
-|--------|-------|
-| GEO services market | $850M+ (projected $7.3B by 2031) |
-| AI-referred traffic growth | +527% year-over-year |
-| AI traffic conversion rate vs organic | 4.4x higher |
-| Gartner: search traffic drop by 2028 | -50% |
-| Brand mentions vs backlinks for AI | 3x stronger correlation |
-| Marketers investing in GEO | Only 23% |
+| Metric | Context |
+|--------|---------|
+| Emerging Discoverability | Rapid shifts in user discovery toward conversational AI interfaces. |
+| AI-referred Traffic | Increasing importance of structured data and entity recognition for AI models. |
+| Visibility Benchmarks | Brand mentions and semantic relevance correlate strongly with AI retrieval. |
+| Authority Signals | Demonstrable expertise and clear structural context influence recommendation algorithms. |
 
 ---
 
-## Quick Start
+## Deployment Options
 
-### One-Command Install (macOS/Linux)
+### One-Command Deployment (macOS/Linux)
 
-The installation script automatically detects and installs the skills and agents to all supported AI coding assistants on your system (Claude Code, Gemini CLI, Codex CLI, OpenCode, and Antigravity IDE).
+The installation script automatically detects and installs the necessary components.
 
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/geo-seo-claude/main/install.sh | bash
+```shell
+curl -fsSL https://raw.githubusercontent.com/findiacs/ai-visibility-intelligence/main/install.sh | source /dev/stdin
 ```
 
-### Manual Install
+### Manual Deployment
 
-```bash
-git clone https://github.com/zubair-trabzada/geo-seo-claude.git
-cd geo-seo-claude
+```shell
+git clone https://github.com/findiacs/ai-visibility-intelligence.git
+cd ai-visibility-intelligence
 ./install.sh
 ```
 
-### Windows (Git Bash)
+### Windows Shell
 
-Requires [Git for Windows](https://git-scm.com/downloads) which includes Git Bash.
+Requires Git for Windows.
 
-```bash
-# Option 1: One-command install (run from Git Bash, not PowerShell/CMD)
-curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/geo-seo-claude/main/install-win.sh | bash
+```shell
+# Option 1: One-command deployment
+curl -fsSL https://raw.githubusercontent.com/findiacs/ai-visibility-intelligence/main/install-win.sh | source /dev/stdin
 
-# Option 2: Manual install
-git clone https://github.com/zubair-trabzada/geo-seo-claude.git
-cd geo-seo-claude
+# Option 2: Manual deployment
+git clone https://github.com/findiacs/ai-visibility-intelligence.git
+cd ai-visibility-intelligence
 ./install-win.sh
 ```
-
-> **Note:** Right-click the folder and select "Open Git Bash here", or open Git Bash and navigate to the directory. Do not use PowerShell or Command Prompt.
 
 ### Requirements
 
 - Python 3.8+ (on Debian/Ubuntu also `python3-venv`)
-- Claude Code CLI
 - Git
-- Optional: [`uv`](https://docs.astral.sh/uv/) — if present, the installer uses it for a faster dependency install
-- Optional: Playwright (for screenshots)
+- Optional: `uv` — if present, the installer uses it for faster dependency installation
+- Optional: Playwright (for execution requiring rendering)
 
-### Isolated install
+### Isolated Environment
 
 Python dependencies are installed into a dedicated virtual environment at
 `~/.claude/skills/geo/.venv/`. Your system Python is **not** touched, and
-uninstalling the skill removes the venv together with the rest of the files.
-
-Skill and agent files reference that venv directly, so the tool works
-regardless of what `python3` resolves to on your `PATH`.
+uninstalling the platform removes the venv together with the rest of the files.
 
 ---
 
-## Commands
+## Intelligence Modules
 
-Open Claude Code and use these commands:
-
-| Command | What It Does |
+| Module | Execution |
 |---------|-------------|
-| `/geo audit <url>` | Full GEO + SEO audit with parallel subagents |
-| `/geo quick <url>` | 60-second GEO visibility snapshot |
-| `/geo citability <url>` | Score content for AI citation readiness |
-| `/geo crawlers <url>` | Check AI crawler access (robots.txt) |
-| `/geo llmstxt <url>` | Analyze or generate llms.txt |
-| `/geo brands <url>` | Scan brand mentions across AI-cited platforms |
-| `/geo platforms <url>` | Platform-specific optimization |
-| `/geo schema <url>` | Structured data analysis & generation |
-| `/geo technical <url>` | Technical SEO audit |
-| `/geo content <url>` | Content quality & E-E-A-T assessment |
-| `/geo report <url>` | Generate client-ready GEO report |
-| `/geo report-pdf` | Generate professional PDF report with charts & visualizations |
+| **Comprehensive Analysis** | Full visibility and readiness assessment across all vectors. |
+| **Visibility Snapshot** | Rapid assessment of current AI discoverability. |
+| **Retrieval Readiness** | Score content structure for AI citation compatibility. |
+| **Crawler Access** | Validate AI bot access protocols and restrictions. |
+| **Contextual Directives** | Analyze or generate `llms.txt` standard files. |
+| **Entity Recognition** | Scan brand presence across platforms heavily weighted by AI models. |
+| **Platform Readiness** | Optimization assessment for specific AI discovery platforms. |
+| **Structural Context** | Structured data analysis and validation. |
+| **Technical Assessment** | Technical foundation analysis for optimal machine readability. |
+| **Authority Analysis** | Content quality, structure, and E-E-A-T alignment. |
+| **Intelligence Report** | Generate comprehensive executive assessment report. |
 
 ---
 
-## Architecture
+## System Architecture
 
-```
-geo-seo-claude/
-├── geo/                          # Main skill orchestrator
-│   └── SKILL.md                  # Primary skill file with commands & routing
-├── skills/                       # 13 specialized sub-skills
-│   ├── geo-audit/                # Full audit orchestration & scoring
-│   ├── geo-citability/           # AI citation readiness scoring
-│   ├── geo-crawlers/             # AI crawler access analysis
-│   ├── geo-llmstxt/              # llms.txt standard analysis & generation
-│   ├── geo-brand-mentions/       # Brand presence on AI-cited platforms
-│   ├── geo-platform-optimizer/   # Platform-specific AI search optimization
-│   ├── geo-schema/               # Structured data for AI discoverability
-│   ├── geo-technical/            # Technical SEO foundations
-│   ├── geo-content/              # Content quality & E-E-A-T
-│   ├── geo-report/               # Client-ready markdown report generation
-│   ├── geo-report-pdf/           # Professional PDF report with charts
-│   ├── geo-prospect/             # CRM-lite prospect pipeline management
-│   ├── geo-proposal/             # Auto-generate client proposals
-│   └── geo-compare/              # Monthly delta tracking & progress reports
-├── agents/                       # 5 parallel subagents
-│   ├── geo-ai-visibility.md      # GEO audit, citability, crawlers, brands
-│   ├── geo-platform-analysis.md  # Platform-specific optimization
-│   ├── geo-technical.md          # Technical SEO analysis
-│   ├── geo-content.md            # Content & E-E-A-T analysis
-│   └── geo-schema.md             # Schema markup analysis
-├── scripts/                      # Python utilities
-│   ├── fetch_page.py             # Page fetching & parsing
-│   ├── citability_scorer.py      # AI citability scoring engine
-│   ├── brand_scanner.py          # Brand mention detection
-│   ├── llmstxt_generator.py      # llms.txt validation & generation
-│   └── generate_pdf_report.py    # PDF report generator (ReportLab)
-├── schema/                       # JSON-LD templates
-│   ├── organization.json         # Organization schema (with sameAs)
-│   ├── local-business.json       # LocalBusiness schema
-│   ├── article-author.json       # Article + Person schema (E-E-A-T)
-│   ├── software-saas.json        # SoftwareApplication schema
-│   ├── product-ecommerce.json    # Product schema with offers
-│   └── website-searchaction.json # WebSite + SearchAction schema
-├── install.sh                    # One-command installer
-├── uninstall.sh                  # Uninstaller
-├── requirements.txt              # Python dependencies
-└── README.md                     # This file
+```text
+ai-visibility-intelligence/
+├── geo/                          # Primary orchestrator
+│   └── SKILL.md                  # Routing definitions
+├── skills/                       # Specialized intelligence modules
+│   ├── geo-audit/                # Comprehensive assessment
+│   ├── geo-citability/           # Retrieval Readiness scoring
+│   ├── geo-crawlers/             # Crawler access analysis
+│   ├── geo-llmstxt/              # Contextual directive management
+│   ├── geo-brand-mentions/       # Entity recognition scanning
+│   ├── geo-platform-optimizer/   # Platform-specific optimization
+│   ├── geo-schema/               # Structural context analysis
+│   ├── geo-technical/            # Technical foundation assessment
+│   ├── geo-content/              # Authority and structural analysis
+│   ├── geo-report/               # Executive summary generation
+│   ├── geo-report-pdf/           # Formal intelligence report generation
+│   ├── geo-prospect/             # Pipeline management
+│   ├── geo-proposal/             # Proposal generation
+│   └── geo-compare/              # Longitudinal delta tracking
+├── agents/                       # Parallel processing units
+│   ├── geo-ai-visibility.md      # Visibility and entity processing
+│   ├── geo-platform-analysis.md  # Platform readiness processing
+│   ├── geo-technical.md          # Technical analysis processing
+│   ├── geo-content.md            # Content and authority processing
+│   └── geo-schema.md             # Structural data processing
+├── scripts/                      # Core analytical utilities
+│   ├── fetch_page.py             # Acquisition engine
+│   ├── citability_scorer.py      # Retrieval readiness logic
+│   ├── brand_scanner.py          # Entity presence detection
+│   ├── llmstxt_generator.py      # Contextual directive logic
+│   └── generate_pdf_report.py    # Report rendering engine
+├── schema/                       # Structural templates
+│   ├── organization.json
+│   ├── local-business.json
+│   ├── article-author.json
+│   ├── software-saas.json
+│   ├── product-ecommerce.json
+│   └── website-searchaction.json
+├── install.sh                    # Deployment utility
+├── uninstall.sh                  # Teardown utility
+├── requirements.txt              # Environment dependencies
+└── README.md                     # Documentation
 ```
 
 ---
 
-## Data Storage
+## Data Segregation
 
-The CRM and reporting skills (`/geo prospect`, `/geo proposal`, `/geo compare`) store runtime data outside the Claude Code directory:
+The system stores operational data locally, segregated from the execution codebase:
 
-```
+```text
 ~/.geo-prospects/
-├── prospects.json              # Client/prospect pipeline data
-├── proposals/                  # Generated proposal documents
-│   └── <domain>-proposal-<date>.md
-└── reports/                    # Monthly delta reports
-    └── <domain>-monthly-<YYYY-MM>.md
+├── prospects.json              # Assessment pipeline state
+├── proposals/                  # Generated documentation
+└── reports/                    # Intelligence summaries
 ```
 
-This directory is **not removed** by the uninstaller — delete it manually if you no longer need your prospect data.
+This directory is preserved during standard teardown procedures.
 
 ---
 
-## How It Works
+## Operational Workflow
 
-### Full Audit Flow
+### Comprehensive Assessment Sequence
 
-When you run `/geo audit https://example.com`:
-
-1. **Discovery** — Fetches homepage, detects business type, crawls sitemap
-2. **Parallel Analysis** — Launches 5 subagents simultaneously:
-   - AI Visibility (citability, crawlers, llms.txt, brand mentions)
-   - Platform Analysis (ChatGPT, Perplexity, Google AIO readiness)
-   - Technical SEO (Core Web Vitals, SSR, security, mobile)
-   - Content Quality (E-E-A-T, readability, freshness)
-   - Schema Markup (detection, validation, generation)
-3. **Synthesis** — Aggregates scores, generates composite GEO Score (0-100)
-4. **Report** — Outputs prioritized action plan with quick wins
-
-### Scoring Methodology
-
-| Category | Weight |
-|----------|--------|
-| AI Citability & Visibility | 25% |
-| Brand Authority Signals | 20% |
-| Content Quality & E-E-A-T | 20% |
-| Technical Foundations | 15% |
-| Structured Data | 10% |
-| Platform Optimization | 10% |
+1. **Discovery & Ingestion** — Validates endpoint, determines structural taxonomy, analyzes topology.
+2. **Parallel Processing** — Engages analytical sub-systems:
+   - Visibility & Entity Readiness
+   - Discovery Platform Compatibility
+   - Technical Foundation
+   - Structural & Authority Assessment
+   - Schema & Metadata Validation
+3. **Synthesis** — Aggregates metrics and determines composite readiness scoring.
+4. **Executive Reporting** — Outputs prioritized strategic and technical recommendations.
 
 ---
 
-## Key Features
+## Key Capabilities
 
-### Citability Scoring
-Analyzes content blocks for AI citation readiness. Optimal AI-cited passages are 134-167 words, self-contained, fact-rich, and directly answer questions.
+### Retrieval Readiness Evaluation
+Analyzes content structures for compatibility with AI extraction models, favoring self-contained, high-density informational blocks.
 
-### AI Crawler Analysis
-Checks robots.txt for 14+ AI crawlers (GPTBot, ClaudeBot, PerplexityBot, etc.) and provides specific allow/block recommendations.
+### Crawler Protocol Validation
+Validates access configurations across major AI ingestion bots to ensure appropriate indexing while preserving security posture.
 
-### Brand Mention Scanning
-Brand mentions correlate 3x more strongly with AI visibility than backlinks. Scans YouTube, Reddit, Wikipedia, LinkedIn, and 7+ other platforms.
+### Entity Presence Detection
+Assesses brand footprint across authoritative domains frequently utilized as training data or live-retrieval sources by AI models.
 
-### Platform-Specific Optimization
-Only 11% of domains are cited by both ChatGPT and Google AI Overviews for the same query. Provides tailored recommendations per platform.
+### Contextual Directives (`llms.txt`)
+Supports the implementation of standardized contextual files that guide AI understanding of organizational structures and data hierarchies.
 
-### llms.txt Generation
-Generates the emerging llms.txt standard file that helps AI crawlers understand your site structure.
-
-### Client-Ready Reports
-Generates professional GEO reports in markdown or PDF format. PDF reports include score gauges, bar charts, platform readiness visualizations, color-coded tables, and prioritized action plans — ready to deliver to clients.
+### Executive Reporting
+Generates professional assessments, detailing readiness scores, platform compatibility, and strategic technical recommendations.
 
 ---
 
-## Use Cases
+## Application Scenarios
 
-- **GEO Agencies** — Run client audits and generate deliverables
-- **Marketing Teams** — Monitor and improve AI search visibility
-- **Content Creators** — Optimize content for AI citations
-- **Local Businesses** — Get found by AI assistants
-- **SaaS Companies** — Improve entity recognition across AI platforms
-- **E-commerce** — Optimize product pages for AI shopping recommendations
+- **Strategic Assessment** — Evaluate organizational readiness for emerging AI search modalities.
+- **Brand Intelligence** — Monitor how language models perceive and represent specific entities.
+- **Technical Validation** — Ensure optimal machine readability of critical digital assets.
+- **Platform Strategy** — Align digital infrastructure with conversational discovery requirements.
 
 ---
 
-## Uninstall
+## Teardown
 
-```bash
+```shell
 ./uninstall.sh
 ```
-
-Or manually:
-```bash
-rm -rf ~/.claude/skills/geo ~/.claude/skills/geo-* ~/.claude/agents/geo-*.md
-```
-
----
-
-## Want to Turn This Into a Business?
-
-The tool is free. Learning how to monetize it is where the community comes in.
-
-**[Join the AI Workshop Community →](https://skool.com/aiworkshop)**
-
-Inside you'll get:
-- **Video walkthroughs** — Step-by-step setup, running audits, reading results
-- **Client acquisition playbook** — How to find prospects, pitch GEO services, and close deals
-- **Live office hours** — Bring your audit results, get direct help
-- **GEO agency pricing & templates** — Proposal docs, cold outreach scripts, onboarding workflows
-
-GEO agencies charge $2K–$12K/month. This tool does the audit. The community teaches you how to sell it.
 
 ---
 
@@ -272,10 +210,4 @@ MIT License
 
 ---
 
-## Contributing
-
-Contributions welcome!
-
----
-
-Built for the AI search era.
+Proprietary Intelligence Infrastructure.

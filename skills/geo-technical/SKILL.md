@@ -380,6 +380,48 @@ ChatGPT uses Bing's index. Bing Copilot uses Bing's index. Faster Bing indexing 
 
 ---
 
+## Category 9: Agent-Readiness Signals (non-scoring)
+
+These checks surface emerging AI agent compatibility signals. None contribute to the numeric score — they produce a pass or a recommendation. The underlying standards are either IETF drafts or early-adoption features; penalizing absence would be unfair.
+
+### 9.1 RFC 8288 Link Headers (Service Discovery)
+
+RFC 8288 (Web Linking) defines the HTTP `Link:` response header. Servers can use it to advertise related resources — API catalog, service docs, MCP server card — in a machine-readable way, without HTML parsing.
+
+**How to check:** Capture all `Link:` response headers from the standard homepage fetch (no extra request).
+
+**What to look for:**
+- Parse `<url>; rel="relation-type"` pairs.
+- High-value rel types: `api-catalog` (RFC 9609), `describedby`, `service-doc`, `mcp-server-card`.
+
+**When to surface a recommendation:** Only for API-first sites (API docs linked in nav, `/api/` or `/developers/` paths, swagger/OpenAPI in sitemap). Omit this section entirely for standard business sites — absence is expected and not noteworthy.
+
+| State | Treatment |
+|---|---|
+| `Link:` headers present, known rel types | Informational — document what was found |
+| `Link:` headers present, unknown rel types | Informational — note and explain |
+| Absent, API-first site | Recommendation — explain and suggest implementation |
+| Absent, standard business site | Omit — do not surface |
+
+### 9.2 Markdown Content Negotiation
+
+Checks if the server responds to `Accept: text/markdown` with `Content-Type: text/markdown`. Cloudflare's "Markdown for Agents" feature enables this — AI agents receive clean Markdown instead of HTML, eliminating boilerplate stripping and improving content extraction accuracy.
+
+**How to check:** Send a GET to the homepage with `Accept: text/markdown`. This is one additional HTTP request per audit.
+
+**Evaluation:**
+- If response `Content-Type` is `text/markdown` (or `text/markdown; charset=utf-8`): pass — note as a leading-edge capability.
+- Otherwise: forward-looking recommendation, not a failure.
+- If the request errors or returns non-200: skip and note the error. Do not penalize.
+
+| State | Treatment |
+|---|---|
+| `text/markdown` returned | Bonus — note as a leading-edge capability |
+| Standard HTML returned | Forward-looking recommendation |
+| Request errors / non-200 | Skip, note the error, do not penalize |
+
+---
+
 ## Overall Scoring
 
 | Category | Max Points | Weight |
@@ -400,6 +442,8 @@ ChatGPT uses Bing's index. Bing Copilot uses Bing's index. Faster Bing indexing 
 - **50-69**: Needs Work — significant technical debt impacting visibility
 - **30-49**: Poor — major issues blocking crawling, indexing, or AI visibility
 - **0-29**: Critical — fundamental technical failures requiring immediate attention
+
+Non-scoring checks (Category 9) appear in the output under "Agent-Readiness Signals" and do not affect this total.
 
 ---
 
@@ -444,5 +488,23 @@ Status: Pass = 80%+ of category points, Warn = 50-79%, Fail = <50%
 [List with details]
 
 ## Detailed Findings
-[Per-category breakdown with evidence]
+|[Per-category breakdown with evidence]|
+
+## Agent-Readiness Signals (non-scoring)
+
+### RFC 8288 Link Headers (Service Discovery)
+
+**Status:** Present / Absent / Not Applicable
+
+<!-- If present: -->
+| Relation Type | URL | Meaning |
+|---|---|---|
+| api-catalog | /.well-known/api-catalog | Machine-readable index of available APIs |
+| mcp-server-card | /.well-known/mcp.json | MCP server capability declaration |
+
+### Markdown Content Negotiation
+
+**Status:** Supported / Not Supported
+**Test:** GET [url] with `Accept: text/markdown`
+**Response Content-Type:** [value]
 ```

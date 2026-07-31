@@ -11,8 +11,9 @@ import json
 import os
 from datetime import datetime
 from pathlib import Path
+from functools import wraps
 
-from flask import Flask, render_template, request, redirect, url_for, send_file, abort, jsonify
+from flask import Flask, render_template, request, redirect, url_for, send_file, abort, jsonify, Response
 
 app = Flask(__name__)
 
@@ -20,6 +21,32 @@ app = Flask(__name__)
 @app.context_processor
 def inject_now():
     return {"now": datetime.now().strftime("%Y-%m-%d %H:%M")}
+
+
+# ── Authentication ─────────────────────────────────────────────────────
+
+def check_auth(username, password):
+    """Check if a username/password combination is valid."""
+    expected_user = os.environ.get("CRM_USER", "admin")
+    expected_pass = os.environ.get("CRM_PASSWORD", "password")
+    return username == expected_user and password == expected_pass
+
+def authenticate():
+    """Sends a 401 response that enables basic auth."""
+    return Response(
+        "Could not verify your access level for that URL.\n"
+        "You have to login with proper credentials", 401,
+        {"WWW-Authenticate": 'Basic realm="Login Required"'})
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
+        return f(*args, **kwargs)
+    return decorated
+
 
 CRM_PATH = Path.home() / ".geo-prospects" / "prospects.json"
 PROPOSALS_DIR = Path.home() / ".geo-prospects" / "proposals"
@@ -102,6 +129,7 @@ def status_meta_filter(status: str) -> dict:
 # ── Routes ─────────────────────────────────────────────────────────────
 
 @app.route("/")
+@requires_auth
 def dashboard():
     prospects = load_prospects()
     status_filter = request.args.get("status", "")
@@ -131,6 +159,7 @@ def dashboard():
 
 
 @app.route("/prospect/<pid>")
+@requires_auth
 def prospect_detail(pid):
     prospects = load_prospects()
     p = next((x for x in prospects if x.get("id") == pid), None)
@@ -150,6 +179,7 @@ def prospect_detail(pid):
 
 
 @app.route("/prospect/<pid>/note", methods=["POST"])
+@requires_auth
 def add_note(pid):
     """HTMX endpoint — returns updated notes fragment."""
     prospects = load_prospects()
@@ -172,6 +202,7 @@ def add_note(pid):
 
 
 @app.route("/prospect/<pid>/status", methods=["POST"])
+@requires_auth
 def update_status(pid):
     """HTMX endpoint — update status, returns badge fragment."""
     prospects = load_prospects()
@@ -190,6 +221,7 @@ def update_status(pid):
 
 
 @app.route("/prospect/<pid>/pdf")
+@requires_auth
 def download_pdf(pid):
     prospects = load_prospects()
     p = next((x for x in prospects if x.get("id") == pid), None)

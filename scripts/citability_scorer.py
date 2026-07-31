@@ -14,6 +14,7 @@ import sys
 import json
 import re
 from typing import Optional
+from security_utils import is_safe_url
 
 try:
     import requests
@@ -246,6 +247,9 @@ def score_passage(text: str, heading: Optional[str] = None) -> dict:
 
 def analyze_page_citability(url: str) -> dict:
     """Analyze all content blocks on a page for citability."""
+    if not is_safe_url(url):
+        return {"error": f"Blocked unsafe URL: {url}"}
+
     try:
         response = requests.get(
             url,

@@ -12,13 +12,16 @@ Extended: /llms-full.txt (detailed version)
 import sys
 import json
 import re
+import concurrent.futures
 from urllib.parse import urljoin, urlparse
 
 try:
     import requests
     from bs4 import BeautifulSoup
 except ImportError:
-    print("ERROR: Required packages not installed. Run: pip install -r requirements.txt")
+    print(
+        "ERROR: Required packages not installed. Run: pip install -r requirements.txt"
+    )
     sys.exit(1)
 
 DEFAULT_HEADERS = {
@@ -68,7 +71,9 @@ def validate_llmstxt(url: str) -> dict:
             if lines and lines[0].startswith("# "):
                 result["has_title"] = True
             else:
-                result["issues"].append("Missing title (should start with '# Site Name')")
+                result["issues"].append(
+                    "Missing title (should start with '# Site Name')"
+                )
 
             # Check for description (> blockquote)
             for line in lines:
@@ -76,7 +81,9 @@ def validate_llmstxt(url: str) -> dict:
                     result["has_description"] = True
                     break
             if not result["has_description"]:
-                result["issues"].append("Missing description (use '> Brief description')")
+                result["issues"].append(
+                    "Missing description (use '> Brief description')"
+                )
 
             # Check for sections (## headings)
             sections = [l for l in lines if l.startswith("## ")]
@@ -91,7 +98,9 @@ def validate_llmstxt(url: str) -> dict:
             result["link_count"] = len(links)
             result["has_links"] = len(links) > 0
             if not result["has_links"]:
-                result["issues"].append("No page links found (use '- [Page Title](url): Description')")
+                result["issues"].append(
+                    "No page links found (use '- [Page Title](url): Description')"
+                )
 
             # Overall format validity
             result["format_valid"] = (
@@ -103,13 +112,21 @@ def validate_llmstxt(url: str) -> dict:
 
             # Suggestions
             if result["link_count"] < 5:
-                result["suggestions"].append("Consider adding more key pages (aim for 10-20)")
+                result["suggestions"].append(
+                    "Consider adding more key pages (aim for 10-20)"
+                )
             if result["section_count"] < 2:
-                result["suggestions"].append("Add more sections to organize content types")
+                result["suggestions"].append(
+                    "Add more sections to organize content types"
+                )
             if "contact" not in content.lower():
-                result["suggestions"].append("Add a Contact section with email and location")
+                result["suggestions"].append(
+                    "Add a Contact section with email and location"
+                )
             if "key fact" not in content.lower() and "about" not in content.lower():
-                result["suggestions"].append("Add key facts about your business/service")
+                result["suggestions"].append(
+                    "Add key facts about your business/service"
+                )
 
         else:
             result["issues"].append(f"llms.txt returned status {response.status_code}")
@@ -149,9 +166,17 @@ def generate_llmstxt(url: str, max_pages: int = 30) -> dict:
 
     # Extract site name and description
     title = soup.find("title")
-    site_name = title.get_text(strip=True).split("|")[0].split("-")[0].strip() if title else parsed.netloc
+    site_name = (
+        title.get_text(strip=True).split("|")[0].split("-")[0].strip()
+        if title
+        else parsed.netloc
+    )
     meta_desc = soup.find("meta", attrs={"name": "description"})
-    site_description = meta_desc.get("content", "") if meta_desc else f"Official website of {site_name}"
+    site_description = (
+        meta_desc.get("content", "")
+        if meta_desc
+        else f"Official website of {site_name}"
+    )
 
     # Discover and categorize pages
     pages = {
@@ -187,11 +212,28 @@ def generate_llmstxt(url: str, max_pages: int = 30) -> dict:
         # Categorize
         page_entry = {"url": href, "title": link_text}
 
-        if any(kw in path for kw in ["/pricing", "/feature", "/product", "/solution", "/demo"]):
+        if any(
+            kw in path
+            for kw in ["/pricing", "/feature", "/product", "/solution", "/demo"]
+        ):
             pages["Products & Services"].append(page_entry)
-        elif any(kw in path for kw in ["/blog", "/article", "/resource", "/guide", "/learn", "/docs", "/documentation"]):
+        elif any(
+            kw in path
+            for kw in [
+                "/blog",
+                "/article",
+                "/resource",
+                "/guide",
+                "/learn",
+                "/docs",
+                "/documentation",
+            ]
+        ):
             pages["Resources & Blog"].append(page_entry)
-        elif any(kw in path for kw in ["/about", "/team", "/career", "/contact", "/press", "/partner"]):
+        elif any(
+            kw in path
+            for kw in ["/about", "/team", "/career", "/contact", "/press", "/partner"]
+        ):
             pages["Company"].append(page_entry)
         elif any(kw in path for kw in ["/help", "/support", "/faq", "/status"]):
             pages["Support"].append(page_entry)
@@ -222,12 +264,14 @@ def generate_llmstxt(url: str, max_pages: int = 30) -> dict:
             llms_lines.append("")
 
     # Add contact section placeholder
-    llms_lines.extend([
-        "## Contact",
-        f"- Website: {base_url}",
-        f"- Email: contact@{parsed.netloc}",
-        "",
-    ])
+    llms_lines.extend(
+        [
+            "## Contact",
+            f"- Website: {base_url}",
+            f"- Email: contact@{parsed.netloc}",
+            "",
+        ]
+    )
 
     result["generated_llmstxt"] = "\n".join(llms_lines)
 
@@ -238,35 +282,45 @@ def generate_llmstxt(url: str, max_pages: int = 30) -> dict:
         "",
     ]
 
+    def fetch_page_desc(page, parsed_netloc):
+        # Skip cross-origin URLs to prevent SSRF via redirect chains
+        if urlparse(page["url"]).netloc != parsed_netloc:
+            return f"- [{page['title']}]({page['url']})"
+
+        # Try to fetch page description
+        try:
+            page_resp = requests.get(page["url"], headers=DEFAULT_HEADERS, timeout=10)
+            page_soup = BeautifulSoup(page_resp.text, "lxml")
+            page_meta = page_soup.find("meta", attrs={"name": "description"})
+            page_desc = page_meta.get("content", "") if page_meta else ""
+            if page_desc:
+                return f"- [{page['title']}]({page['url']}): {page_desc}"
+            else:
+                return f"- [{page['title']}]({page['url']})"
+        except Exception:
+            return f"- [{page['title']}]({page['url']})"
+
     for section, section_pages in pages.items():
         if section_pages:
             full_lines.append(f"## {section}")
-            for page in section_pages:
-                # Skip cross-origin URLs to prevent SSRF via redirect chains
-                if urlparse(page["url"]).netloc != parsed.netloc:
-                    full_lines.append(f"- [{page['title']}]({page['url']})")
-                    continue
-
-                # Try to fetch page description
-                try:
-                    page_resp = requests.get(page["url"], headers=DEFAULT_HEADERS, timeout=10)
-                    page_soup = BeautifulSoup(page_resp.text, "lxml")
-                    page_meta = page_soup.find("meta", attrs={"name": "description"})
-                    page_desc = page_meta.get("content", "") if page_meta else ""
-                    if page_desc:
-                        full_lines.append(f"- [{page['title']}]({page['url']}): {page_desc}")
-                    else:
-                        full_lines.append(f"- [{page['title']}]({page['url']})")
-                except Exception:
-                    full_lines.append(f"- [{page['title']}]({page['url']})")
+            with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+                # We submit all pages in this section to the executor and keep the original order
+                futures = [
+                    executor.submit(fetch_page_desc, page, parsed.netloc)
+                    for page in section_pages
+                ]
+                for future in futures:
+                    full_lines.append(future.result())
             full_lines.append("")
 
-    full_lines.extend([
-        "## Contact",
-        f"- Website: {base_url}",
-        f"- Email: contact@{parsed.netloc}",
-        "",
-    ])
+    full_lines.extend(
+        [
+            "## Contact",
+            f"- Website: {base_url}",
+            f"- Email: contact@{parsed.netloc}",
+            "",
+        ]
+    )
 
     result["generated_llmstxt_full"] = "\n".join(full_lines)
     result["sections"] = {k: len(v) for k, v in pages.items()}

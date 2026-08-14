@@ -17,6 +17,7 @@ import sys
 import json
 import re
 from urllib.parse import quote_plus
+from security_utils import is_safe_url
 
 try:
     import requests
@@ -118,6 +119,9 @@ def check_wikipedia_presence(brand_name: str) -> dict:
     # Check Wikipedia API
     try:
         api_url = f"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={quote_plus(brand_name)}&format=json"
+        if not is_safe_url(api_url):
+            return result
+
         response = requests.get(api_url, headers=DEFAULT_HEADERS, timeout=15)
         if response.status_code == 200:
             data = response.json()
@@ -134,6 +138,9 @@ def check_wikipedia_presence(brand_name: str) -> dict:
     # Check Wikidata
     try:
         wikidata_url = f"https://www.wikidata.org/w/api.php?action=wbsearchentities&search={quote_plus(brand_name)}&language=en&format=json"
+        if not is_safe_url(wikidata_url):
+            return result
+
         response = requests.get(wikidata_url, headers=DEFAULT_HEADERS, timeout=15)
         if response.status_code == 200:
             data = response.json()

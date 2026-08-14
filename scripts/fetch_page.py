@@ -8,6 +8,7 @@ import sys
 import json
 import re
 from urllib.parse import urljoin, urlparse
+from security_utils import is_safe_url
 
 try:
     import requests
@@ -57,9 +58,8 @@ def fetch_page(url: str, timeout: int = 30) -> dict:
         "errors": [],
     }
 
-    parsed_url = urlparse(url)
-    if parsed_url.scheme not in ("http", "https"):
-        result["errors"].append(f"Unsupported URL scheme: {parsed_url.scheme!r}. Only http and https are allowed.")
+    if not is_safe_url(url):
+        result["errors"].append(f"Blocked unsafe or unsupported URL: {url}")
         return result
 
     try:
@@ -203,6 +203,16 @@ def fetch_robots_txt(url: str, timeout: int = 15) -> dict:
     parsed = urlparse(url)
     robots_url = f"{parsed.scheme}://{parsed.netloc}/robots.txt"
 
+    if not is_safe_url(robots_url):
+        return {
+            "url": robots_url,
+            "exists": False,
+            "content": "",
+            "ai_crawler_status": {},
+            "sitemaps": [],
+            "errors": [f"Blocked unsafe URL: {robots_url}"],
+        }
+
     ai_crawlers = [
         "GPTBot",
         "OAI-SearchBot",
@@ -320,6 +330,10 @@ def fetch_llms_txt(url: str, timeout: int = 15) -> dict:
 
     for key, check_url in [("llms_txt", llms_url), ("llms_full_txt", llms_full_url)]:
         try:
+            if not is_safe_url(check_url):
+                result["errors"].append(f"Blocked unsafe URL: {check_url}")
+                continue
+
             response = requests.get(
                 check_url, headers=DEFAULT_HEADERS, timeout=timeout
             )
@@ -408,6 +422,9 @@ def crawl_sitemap(url: str, max_pages: int = 50, timeout: int = 15) -> list:
 
     for sitemap_url in sitemap_urls:
         try:
+            if not is_safe_url(sitemap_url):
+                continue
+
             response = requests.get(
                 sitemap_url, headers=DEFAULT_HEADERS, timeout=timeout
             )
@@ -420,8 +437,11 @@ def crawl_sitemap(url: str, max_pages: int = 50, timeout: int = 15) -> list:
                     if loc:
                         # Fetch child sitemap
                         try:
+                            child_url = loc.text.strip()
+                            if not is_safe_url(child_url):
+                                continue
                             child_resp = requests.get(
-                                loc.text.strip(),
+                                child_url,
                                 headers=DEFAULT_HEADERS,
                                 timeout=timeout,
                             )
@@ -474,6 +494,9 @@ if __name__ == "__main__":
         pages = crawl_sitemap(target_url)
         data = {"pages": pages, "count": len(pages)}
     elif mode == "blocks":
+        if not is_safe_url(target_url):
+            print(f"Error: Blocked unsafe URL: {target_url}")
+            sys.exit(1)
         response = requests.get(target_url, headers=DEFAULT_HEADERS, timeout=30)
         data = extract_content_blocks(response.text)
     elif mode == "full":

@@ -23,7 +23,7 @@
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-XXX-XXX-XXXX",
+    "telephone": "YOUR_TELEPHONE",
     "contactType": "customer service",
     "email": "contact@YOURDOMAIN.com",
     "availableLanguage": ["English"]

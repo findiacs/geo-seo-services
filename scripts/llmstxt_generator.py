@@ -13,6 +13,7 @@ import sys
 import json
 import re
 from urllib.parse import urljoin, urlparse
+from security_utils import is_safe_url
 
 try:
     import requests
@@ -55,6 +56,10 @@ def validate_llmstxt(url: str) -> dict:
 
     # Check llms.txt
     try:
+        if not is_safe_url(llms_url):
+            result["issues"].append(f"Blocked unsafe URL: {llms_url}")
+            return result
+
         response = requests.get(llms_url, headers=DEFAULT_HEADERS, timeout=15)
         if response.status_code == 200:
             result["exists"] = True
@@ -118,9 +123,10 @@ def validate_llmstxt(url: str) -> dict:
 
     # Check llms-full.txt
     try:
-        response = requests.get(llms_full_url, headers=DEFAULT_HEADERS, timeout=15)
-        if response.status_code == 200:
-            result["full_version"]["exists"] = True
+        if is_safe_url(llms_full_url):
+            response = requests.get(llms_full_url, headers=DEFAULT_HEADERS, timeout=15)
+            if response.status_code == 200:
+                result["full_version"]["exists"] = True
     except Exception:
         pass
 
@@ -141,6 +147,10 @@ def generate_llmstxt(url: str, max_pages: int = 30) -> dict:
 
     # Fetch homepage
     try:
+        if not is_safe_url(url):
+            result["error"] = f"Blocked unsafe URL: {url}"
+            return result
+
         response = requests.get(url, headers=DEFAULT_HEADERS, timeout=30)
         soup = BeautifulSoup(response.text, "lxml")
     except Exception as e:
@@ -249,6 +259,10 @@ def generate_llmstxt(url: str, max_pages: int = 30) -> dict:
 
                 # Try to fetch page description
                 try:
+                    if not is_safe_url(page["url"]):
+                        full_lines.append(f"- [{page['title']}]({page['url']})")
+                        continue
+
                     page_resp = requests.get(page["url"], headers=DEFAULT_HEADERS, timeout=10)
                     page_soup = BeautifulSoup(page_resp.text, "lxml")
                     page_meta = page_soup.find("meta", attrs={"name": "description"})

@@ -11,8 +11,9 @@ import json
 import os
 from datetime import datetime
 from pathlib import Path
+from functools import wraps
 
-from flask import Flask, render_template, request, redirect, url_for, send_file, abort, jsonify
+from flask import Flask, render_template, request, redirect, url_for, send_file, abort, jsonify, Response
 
 app = Flask(__name__)
 
@@ -20,6 +21,32 @@ app = Flask(__name__)
 @app.context_processor
 def inject_now():
     return {"now": datetime.now().strftime("%Y-%m-%d %H:%M")}
+
+
+# ── Authentication ─────────────────────────────────────────────────────
+
+def check_auth(username, password):
+    """Check if a username/password combination is valid."""
+    expected_user = os.environ.get("CRM_USER", "admin")
+    expected_pass = os.environ.get("CRM_PASSWORD", "password")
+    return username == expected_user and password == expected_pass
+
+def authenticate():
+    """Sends a 401 response that enables basic auth."""
+    return Response(
+        "Could not verify your access level for that URL.\n"
+        "You have to login with proper credentials", 401,
+        {"WWW-Authenticate": 'Basic realm="Login Required"'})
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
+        return f(*args, **kwargs)
+    return decorated
+
 
 CRM_PATH = Path.home() / ".geo-prospects" / "prospects.json"
 PROPOSALS_DIR = Path.home() / ".geo-prospects" / "proposals"
@@ -55,6 +82,12 @@ def format_eur(value) -> str:
         return "—"
     return f"€{int(value):,}".replace(",", ".")
 
+def list_pdfs() -> list[Path]:
+    """List all PDF files in the proposals directory, sorted by name descending."""
+    if not PROPOSALS_DIR.exists():
+        return []
+    return sorted(PROPOSALS_DIR.glob("*.pdf"), reverse=True)
+
 def crm_stats(prospects: list[dict]) -> dict:
     total = len(prospects)
     active = [p for p in prospects if p.get("status") == "active"]
@@ -71,9 +104,18 @@ def crm_stats(prospects: list[dict]) -> dict:
         "avg_tier": score_tier(avg_score),
     }
 
-def find_pdf(prospect: dict) -> Path | None:
-    """Find the PDF file for a prospect."""
+def find_pdf(prospect: dict, all_pdfs: list[Path] | None = None) -> Path | None:
+    """Find the PDF file for a prospect, optionally using a pre-loaded list."""
     domain = prospect.get("domain", "")
+    if not domain:
+        return None
+
+    if all_pdfs is not None:
+        for f in all_pdfs:
+            if f.name.startswith(domain):
+                return f
+        return None
+
     for f in sorted(PROPOSALS_DIR.glob(f"{domain}*.pdf"), reverse=True):
         return f
     return None
@@ -102,10 +144,15 @@ def status_meta_filter(status: str) -> dict:
 # ── Routes ─────────────────────────────────────────────────────────────
 
 @app.route("/")
+@requires_auth
 def dashboard():
     prospects = load_prospects()
     status_filter = request.args.get("status", "")
     sort = request.args.get("sort", "score")
+
+    all_pdfs = list_pdfs()
+    for p in prospects:
+        p["_has_pdf"] = find_pdf(p, all_pdfs) is not None
 
     filtered = [p for p in prospects if not status_filter or p.get("status") == status_filter]
 
@@ -131,6 +178,7 @@ def dashboard():
 
 
 @app.route("/prospect/<pid>")
+@requires_auth
 def prospect_detail(pid):
     prospects = load_prospects()
     p = next((x for x in prospects if x.get("id") == pid), None)
@@ -150,6 +198,7 @@ def prospect_detail(pid):
 
 
 @app.route("/prospect/<pid>/note", methods=["POST"])
+@requires_auth
 def add_note(pid):
     """HTMX endpoint — returns updated notes fragment."""
     prospects = load_prospects()
@@ -172,6 +221,7 @@ def add_note(pid):
 
 
 @app.route("/prospect/<pid>/status", methods=["POST"])
+@requires_auth
 def update_status(pid):
     """HTMX endpoint — update status, returns badge fragment."""
     prospects = load_prospects()
@@ -190,6 +240,7 @@ def update_status(pid):
 
 
 @app.route("/prospect/<pid>/pdf")
+@requires_auth
 def download_pdf(pid):
     prospects = load_prospects()
     p = next((x for x in prospects if x.get("id") == pid), None)

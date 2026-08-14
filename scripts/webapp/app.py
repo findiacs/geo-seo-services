@@ -82,6 +82,12 @@ def format_eur(value) -> str:
         return "—"
     return f"€{int(value):,}".replace(",", ".")
 
+def list_pdfs() -> list[Path]:
+    """List all PDF files in the proposals directory, sorted by name descending."""
+    if not PROPOSALS_DIR.exists():
+        return []
+    return sorted(PROPOSALS_DIR.glob("*.pdf"), reverse=True)
+
 def crm_stats(prospects: list[dict]) -> dict:
     total = len(prospects)
     active = [p for p in prospects if p.get("status") == "active"]
@@ -98,9 +104,18 @@ def crm_stats(prospects: list[dict]) -> dict:
         "avg_tier": score_tier(avg_score),
     }
 
-def find_pdf(prospect: dict) -> Path | None:
-    """Find the PDF file for a prospect."""
+def find_pdf(prospect: dict, all_pdfs: list[Path] | None = None) -> Path | None:
+    """Find the PDF file for a prospect, optionally using a pre-loaded list."""
     domain = prospect.get("domain", "")
+    if not domain:
+        return None
+
+    if all_pdfs is not None:
+        for f in all_pdfs:
+            if f.name.startswith(domain):
+                return f
+        return None
+
     for f in sorted(PROPOSALS_DIR.glob(f"{domain}*.pdf"), reverse=True):
         return f
     return None
@@ -134,6 +149,10 @@ def dashboard():
     prospects = load_prospects()
     status_filter = request.args.get("status", "")
     sort = request.args.get("sort", "score")
+
+    all_pdfs = list_pdfs()
+    for p in prospects:
+        p["_has_pdf"] = find_pdf(p, all_pdfs) is not None
 
     filtered = [p for p in prospects if not status_filter or p.get("status") == status_filter]
 

@@ -6,7 +6,7 @@
   "url": "https://YOURDOMAIN.com",
   "image": "https://YOURDOMAIN.com/images/storefront.jpg",
   "description": "YOUR_BUSINESS_DESCRIPTION",
-  "telephone": "+1-XXX-XXX-XXXX",
+  "telephone": "YOUR_TELEPHONE",
   "email": "contact@YOURDOMAIN.com",
   "priceRange": "$$",
   "address": {
